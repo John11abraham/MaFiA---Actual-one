@@ -1,0 +1,150 @@
+./net/socket.c:2273:SYSCALL_DEFINE3(recvmsg, int, fd, struct user_msghdr __user *, msg,
+./net/compat.c:754:COMPAT_SYSCALL_DEFINE3(recvmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags)
+./kernel/module.c:3875:SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
+./fs/fhandle.c:257:SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+./fs/fhandle.c:275:COMPAT_SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+./fs/open.c:1109:SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+./fs/open.c:1117:SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags,
+./fs/open.c:1131:COMPAT_SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+./fs/open.c:1140:COMPAT_SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, umode_t, mode)      //
+./fs/stat.c:382:SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,            // Check with andre what dfd means, is it handled by his script - DONE
+./fs/stat.c:418:SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,     //                                 
+./fs/open.c:459:SYSCALL_DEFINE2(access, const char __user *, filename, int, mode) //
+./fs/readdir.c:213:SYSCALL_DEFINE3(getdents, unsigned int, fd,  // 
+./fs/readdir.c:296:SYSCALL_DEFINE3(getdents64, unsigned int, fd,   //            andre should check these 3 if they are correct and whether i should return this fd
+./fs/readdir.c:460:COMPAT_SYSCALL_DEFINE3(getdents, unsigned int, fd, // 
+./fs/eventpoll.c:2170:SYSCALL_DEFINE4(epoll_wait, int, epfd, struct epoll_event __user *, events,    //
+./fs/eventpoll.c:1958:SYSCALL_DEFINE1(epoll_create1, int, flags)                           //            
+./fs/eventpoll.c:2001:SYSCALL_DEFINE1(epoll_create, int, size)                           //                 
+./fs/open.c:1152:SYSCALL_DEFINE2(creat, const char __user *, pathname, umode_t, mode)     //
+./fs/namei.c:4262:SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag)  // this also has dfd
+./fs/namei.c:4273:SYSCALL_DEFINE1(unlink, const char __user *, pathname) // 
+./fs/fcntl.c:448:SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd, unsigned long, arg) //                    these manipulate fds according to the cmd // redo these
+./fs/fcntl.c:472:SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd, //
+./fs/fcntl.c:610:COMPAT_SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd,   //
+./fs/fcntl.c:675:COMPAT_SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd,     //
+./fs/select.c:1016:SYSCALL_DEFINE3(poll, struct pollfd __user *, ufds, unsigned int, nfds,       --
+./fs/namei.c:4690:SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname,      //              
+./fs/namei.c:4833:SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,         //            
+./fs/namei.c:4839:SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)  //
+./fs/file.c:911:SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)                   //              
+./fs/namei.c:3980:SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)      //          
+./fs/namei.c:4005:SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode) //
+./mm/readahead.c:584:SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)                              ------readahead is not actually file access right? // it is
+./fs/stat.c:382:SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,                              --- check the service function and use that fd 
+./fs/stat.c:418:SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,                                  
+./fs/read_write.c:571:SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)     //                
+./fs/read_write.c:1102:SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec,  //
+./fs/read_write.c:1194:COMPAT_SYSCALL_DEFINE3(readv, compat_ulong_t, fd,    //
+./fs/read_write.c:586:SYSCALL_DEFINE3(write, unsigned int, fd, const char __user *, buf,  //
+./fs/read_write.c:1108:SYSCALL_DEFINE3(writev, unsigned long, fd, const struct iovec __user *, vec, //
+./fs/read_write.c:1303:COMPAT_SYSCALL_DEFINE3(writev, compat_ulong_t, fd, //
+./fs/fhandle.c:257:SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,       //
+./fs/fhandle.c:275:COMPAT_SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,  //
+./fs/open.c:1109:SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode) //
+./fs/open.c:1117:SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, //
+./fs/open.c:1131:COMPAT_SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode) //
+./fs/open.c:1140:COMPAT_SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, umode_t, mode) //
+./fs/open.c:1117:SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, //
+./fs/open.c:1140:COMPAT_SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, umode_t, mode) //
+./fs/open.c:1190:SYSCALL_DEFINE1(close, unsigned int, fd)                                       //
+./fs/open.c:1152:SYSCALL_DEFINE2(creat, const char __user *, pathname, umode_t, mode) //
+./fs/read_write.c:304:SYSCALL_DEFINE3(lseek, unsigned int, fd, off_t, offset, unsigned int, whence) //
+./fs/read_write.c:323:COMPAT_SYSCALL_DEFINE3(lseek, unsigned int, fd, compat_off_t, offset, unsigned int, whence) //
+./mm/msync.c:32:SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)                                           ----- not sure what to do about this one
+./fs/compat_ioctl.c:1538:COMPAT_SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd,   //
+./fs/ioctl.c:692:SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd, unsigned long, arg)    //
+./fs/read_write.c:1102:SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec, /
+./fs/read_write.c:1194:COMPAT_SYSCALL_DEFINE3(readv, compat_ulong_t, fd, //
+./fs/fcntl.c:448:SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd, unsigned long, arg) //
+./fs/fcntl.c:472:SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd, //
+./fs/fcntl.c:610:COMPAT_SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd,  //
+./fs/fcntl.c:675:COMPAT_SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd,  //
+./fs/locks.c:1996:SYSCALL_DEFINE2(flock, unsigned int, fd, unsigned int, cmd)  //
+./fs/open.c:575:SYSCALL_DEFINE2(fchmod, unsigned int, fd, umode_t, mode) //
+./fs/open.c:588:SYSCALL_DEFINE3(fchmodat, int, dfd, const char __user *, filename, umode_t, mode)  //
+./fs/file.c:877:SYSCALL_DEFINE3(dup3, unsigned int, oldfd, unsigned int, newfd, int, flags)//
+./fs/file.c:911:SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd) //
+./fs/file.c:926:SYSCALL_DEFINE1(dup, unsigned int, fildes) //
+./fs/file.c:911:SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd) //
+./arch/tile/kernel/compat.c:48:COMPAT_SYSCALL_DEFINE4(ftruncate64, unsigned int, fd, u32, dummy, //
+./fs/open.c:222:SYSCALL_DEFINE2(ftruncate, unsigned int, fd, unsigned long, length)  //
+./fs/open.c:228:COMPAT_SYSCALL_DEFINE2(ftruncate, unsigned int, fd, compat_ulong_t, length) // 
+./fs/open.c:241:SYSCALL_DEFINE2(ftruncate64, unsigned int, fd, loff_t, length) //
+./fs/readdir.c:296:SYSCALL_DEFINE3(getdents64, unsigned int, fd, //
+./fs/sync.c:227:SYSCALL_DEFINE1(fsync, unsigned int, fd)  //
+./fs/sync.c:232:SYSCALL_DEFINE1(fdatasync, unsigned int, fd) // 
+./kernel/uid16.c:31:SYSCALL_DEFINE3(fchown16, unsigned int, fd, old_uid_t, user, old_gid_t, group) //
+./fs/open.c:653:SYSCALL_DEFINE5(fchownat, int, dfd, const char __user *, filename, uid_t, user, /
+./fs/open.c:696:SYSCALL_DEFINE3(fchown, unsigned int, fd, uid_t, user, gid_t, group) //
+./arch/tile/kernel/compat.c:68:COMPAT_SYSCALL_DEFINE6(sync_file_range2, int, fd, unsigned int, flags, //
+./fs/sync.c:108:SYSCALL_DEFINE0(sync)                                                                              -------------- does not take any args
+./fs/sync.c:155:SYSCALL_DEFINE1(syncfs, int, fd) //
+./fs/sync.c:284:SYSCALL_DEFINE4(sync_file_range, int, fd, loff_t, offset, loff_t, nbytes, //
+./fs/sync.c:365:SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags, //
+./fs/read_write.c:1473:SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd, off_t __user *, offset, size_t, count)  // 
+./fs/read_write.c:1492:SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd, loff_t __user *, offset, size_t, count) //
+./fs/read_write.c:1510:COMPAT_SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd, //
+./fs/read_write.c:1530:COMPAT_SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd, //
+./fs/namei.c:3980:SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)  //
+./fs/open.c:653:SYSCALL_DEFINE5(fchownat, int, dfd, const char __user *, filename, uid_t, user, //
+./fs/open.c:588:SYSCALL_DEFINE3(fchmodat, int, dfd, const char __user *, filename, umode_t, mode) //
+./fs/namei.c:4690:SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname, //
+./fs/namei.c:4833:SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname, //
+./fs/xattr.c:497:SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,                     ----
+./fs/xattr.c:589:SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,						---
+./fs/xattr.c:665:SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)			---Ask andre about these 3
+./fs/xattr.c:730:SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name) -----
+./fs/namei.c:4436:SYSCALL_DEFINE5(linkat, int, olddfd, const char __user *, oldname,  ----
+./fs/namei.c:4501:SYSCALL_DEFINE2(link, const char __user *, oldname, const char __user *, newname)    --- all these links
+./fs/namei.c:4262:SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag) //
+./fs/namei.c:4273:SYSCALL_DEFINE1(unlink, const char __user *, pathname)    //
+./fs/namei.c:4262:SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag) //
+./fs/namei.c:3899:SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode, //
+./fs/namei.c:3943:SYSCALL_DEFINE3(mknod, const char __user *, filename, umode_t, mode, unsigned, dev) //
+./fs/open.c:606:SYSCALL_DEFINE2(chmod, const char __user *, filename, umode_t, mode) //
+./kernel/uid16.c:21:SYSCALL_DEFINE3(chown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)   ----
+./fs/open.c:685:SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)                     ----
+./kernel/uid16.c:26:SYSCALL_DEFINE3(lchown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)   ----- assuming we do not have to care about these
+./fs/open.c:690:SYSCALL_DEFINE3(lchown, const char __user *, filename, uid_t, user, gid_t, group) --
+./fs/namei.c:3980:SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode) //
+./fs/namei.c:4005:SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode) //
+./fs/stat.c:382:SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,   //
+./fs/stat.c:418:SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,  //
+./fs/namei.c:4114:SYSCALL_DEFINE1(rmdir, const char __user *, pathname)   //
+./fs/namei.c:4690:SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname, //
+./fs/namei.c:4833:SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname, //
+./fs/namei.c:4839:SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)  //
+./fs/namei.c:4305:SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,                                           -------------
+./fs/namei.c:4336:SYSCALL_DEFINE2(symlink, const char __user *, oldname, const char __user *, newname)              ---------------Ask andre
+./arch/tile/kernel/compat.c:42:COMPAT_SYSCALL_DEFINE4(truncate64, char __user *, filename, u32, dummy,    //
+./fs/open.c:160:SYSCALL_DEFINE2(truncate, const char __user *, path, long, length) //
+./fs/open.c:166:COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length) //
+./fs/open.c:236:SYSCALL_DEFINE2(truncate64, const char __user *, path, loff_t, length) //
+./fs/xattr.c:483:SYSCALL_DEFINE5(setxattr, const char __user *, pathname,
+./fs/xattr.c:490:SYSCALL_DEFINE5(lsetxattr, const char __user *, pathname,
+./fs/xattr.c:577:SYSCALL_DEFINE4(getxattr, const char __user *, pathname,
+./fs/xattr.c:583:SYSCALL_DEFINE4(lgetxattr, const char __user *, pathname,
+./fs/xattr.c:653:SYSCALL_DEFINE3(listxattr, const char __user *, pathname, char __user *, list,
+./fs/xattr.c:659:SYSCALL_DEFINE3(llistxattr, const char __user *, pathname, char __user *, list,               ----- ALL THESE ATTR ONES
+./fs/xattr.c:718:SYSCALL_DEFINE2(removexattr, const char __user *, pathname,
+./fs/xattr.c:724:SYSCALL_DEFINE2(lremovexattr, const char __user *, pathname,
+./net/socket.c:1325:SYSCALL_DEFINE3(socket, int, family, int, type, int, protocol)  //
+./net/socket.c:1366:SYSCALL_DEFINE4(socketpair, int, family, int, type, int, protocol, //
+./net/socket.c:2439:SYSCALL_DEFINE2(socketcall, int, call, unsigned long __user *, args)   ---
+./net/compat.c:793:COMPAT_SYSCALL_DEFINE2(socketcall, int, call, u32 __user *, args)  ---
+./net/socket.c:1366:SYSCALL_DEFINE4(socketpair, int, family, int, type, int, protocol, //
+./net/socket.c:1475:SYSCALL_DEFINE3(bind, int, fd, struct sockaddr __user *, umyaddr, int, addrlen) //
+./net/socket.c:1636:SYSCALL_DEFINE3(connect, int, fd, struct sockaddr __user *, uservaddr,   //
+./net/socket.c:1504:SYSCALL_DEFINE2(listen, int, fd, int, backlog)    //
+./net/socket.c:1537:SYSCALL_DEFINE4(accept4, int, fd, struct sockaddr __user *, upeer_sockaddr, // 
+./net/socket.c:1618:SYSCALL_DEFINE3(accept, int, fd, struct sockaddr __user *, upeer_sockaddr, //
+./net/socket.c:1731:SYSCALL_DEFINE6(sendto, int, fd, void __user *, buff, size_t, len, //
+./net/socket.c:1787:SYSCALL_DEFINE6(recvfrom, int, fd, void __user *, ubuf, size_t, size, //
+./net/compat.c:764:COMPAT_SYSCALL_DEFINE6(recvfrom, int, fd, void __user *, buf, compat_size_t, len, //
+./net/socket.c:1908:SYSCALL_DEFINE2(shutdown, int, fd, int, how) //
+
+./net/socket.c:2103:SYSCALL_DEFINE3(sendmsg, int, fd, struct user_msghdr __user *, msg, unsigned int, flags) //
+./net/compat.c:742:COMPAT_SYSCALL_DEFINE3(sendmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags) //
+./net/socket.c:2273:SYSCALL_DEFINE3(recvmsg, int, fd, struct user_msghdr __user *, msg, //
+./net/compat.c:754:COMPAT_SYSCALL_DEFINE3(recvmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags) //

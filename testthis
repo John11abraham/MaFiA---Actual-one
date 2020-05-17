@@ -1,0 +1,780 @@
+1-SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
+2-		unsigned long, cmdline_len, const char __user *, cmdline_ptr,
+3-		unsigned long, flags)
+4:{
+1-SYSCALL_DEFINE5(perf_event_open,
+2-		struct perf_event_attr __user *, attr_uptr,
+3-		pid_t, pid, int, cpu, int, group_fd, unsigned long, flags)
+4:{
+1-SYSCALL_DEFINE1(exit, int, error_code)
+2:{
+1-SYSCALL_DEFINE1(close, unsigned int, fd)
+2:{
+1-SYSCALL_DEFINE2(creat, const char __user *, pathname, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+2-		struct file_handle __user *, handle,
+3-		int, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+2-			     struct file_handle __user *, handle, int, flags)
+3:{
+1-SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags,
+2-		umode_t, mode)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+2:{
+1-COMPAT_SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags,
+2-		umode_t, mode)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE5(name_to_handle_at, int, dfd, const char __user *, name,
+2-		struct file_handle __user *, handle, int __user *, mnt_id,
+3-		int, flag)
+4:{
+1-SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+2-		struct file_handle __user *, handle,
+3-		int, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+2-			     struct file_handle __user *, handle, int, flags)
+3:{
+1-SYSCALL_DEFINE2(memfd_create,
+2-		const char __user *, uname,
+3-		unsigned int, flags)
+4:{
+1-SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode,
+2-		unsigned, dev)
+3:{
+1-SYSCALL_DEFINE3(mknod, const char __user *, filename, umode_t, mode, unsigned, dev)
+2:{
+1-SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode,
+2-		unsigned, dev)
+3:{
+1-SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname, unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname)
+3:{
+1-SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)
+2:{
+1-SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname, unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname)
+3:{
+1-SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname, unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(truncate64, char __user *, filename, u32, dummy,
+2-		       SYSCALL_PAIR(length))
+3:{
+1-SYSCALL_DEFINE2(truncate, const char __user *, path, long, length)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length)
+2:{
+1-SYSCALL_DEFINE2(truncate64, const char __user *, path, loff_t, length)
+2:{
+1-COMPAT_SYSCALL_DEFINE4(ftruncate64, unsigned int, fd, u32, dummy,
+2-		       SYSCALL_PAIR(length))
+3:{
+1-SYSCALL_DEFINE2(ftruncate, unsigned int, fd, unsigned long, length)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(ftruncate, unsigned int, fd, compat_ulong_t, length)
+2:{
+1-SYSCALL_DEFINE2(ftruncate64, unsigned int, fd, loff_t, length)
+2:{
+1-COMPAT_SYSCALL_DEFINE6(fallocate, int, fd, int, mode,
+2-		       SYSCALL_PAIR(offset), SYSCALL_PAIR(len))
+3:{
+1-SYSCALL_DEFINE4(fallocate, int, fd, int, mode, loff_t, offset, loff_t, len)
+2:{
+1-SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE1(rmdir, const char __user *, pathname)
+2:{
+1-SYSCALL_DEFINE2(getcwd, char __user *, buf, unsigned long, size)
+2:{
+1-SYSCALL_DEFINE1(chdir, const char __user *, filename)
+2:{
+1-SYSCALL_DEFINE1(fchdir, unsigned int, fd)
+2:{
+1-SYSCALL_DEFINE1(chroot, const char __user *, filename)
+2:{
+1-SYSCALL_DEFINE3(getdents, unsigned int, fd,
+2-		struct linux_dirent __user *, dirent, unsigned int, count)
+3:{
+1-SYSCALL_DEFINE3(getdents64, unsigned int, fd,
+2-		struct linux_dirent64 __user *, dirent, unsigned int, count)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(getdents, unsigned int, fd,
+2-		struct compat_linux_dirent __user *, dirent, unsigned int, count)
+3:{
+1-SYSCALL_DEFINE3(getdents64, unsigned int, fd,
+2-		struct linux_dirent64 __user *, dirent, unsigned int, count)
+3:{
+1-SYSCALL_DEFINE3(lookup_dcookie, u64, cookie64, char __user *, buf, size_t, len)
+2:{
+1-COMPAT_SYSCALL_DEFINE4(lookup_dcookie, u32, w0, u32, w1, char __user *, buf, compat_size_t, len)
+2:{
+1-SYSCALL_DEFINE5(linkat, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname, int, flags)
+3:{
+1-SYSCALL_DEFINE2(link, const char __user *, oldname, const char __user *, newname)
+2:{
+1-SYSCALL_DEFINE5(linkat, int, olddfd, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname, int, flags)
+3:{
+1-SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname)
+3:{
+1-SYSCALL_DEFINE2(symlink, const char __user *, oldname, const char __user *, newname)
+2:{
+1-SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,
+2-		int, newdfd, const char __user *, newname)
+3:{
+1-SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag)
+2:{
+1-SYSCALL_DEFINE1(unlink, const char __user *, pathname)
+2:{
+1-SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag)
+2:{
+1-SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,
+2-		char __user *, buf, int, bufsiz)
+3:{
+1-SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,
+2-		int, bufsiz)
+3:{
+1-SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,
+2-		char __user *, buf, int, bufsiz)
+3:{
+1-SYSCALL_DEFINE1(umask, int, mask)
+2:{
+1-SYSCALL_DEFINE2(statfs, const char __user *, pathname, struct statfs __user *, buf)
+2:{
+1-SYSCALL_DEFINE3(statfs64, const char __user *, pathname, size_t, sz, struct statfs64 __user *, buf)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(statfs, const char __user *, pathname, struct compat_statfs __user *, buf)
+2:{
+1-COMPAT_SYSCALL_DEFINE3(statfs64, const char __user *, pathname, compat_size_t, sz, struct compat_statfs64 __user *, buf)
+2:{
+1-SYSCALL_DEFINE2(stat, const char __user *, filename,
+2-		struct __old_kernel_stat __user *, statbuf)
+3:{
+1-SYSCALL_DEFINE2(stat64, const char __user *, filename,
+2-		struct stat64 __user *, statbuf)
+3:{
+1-SYSCALL_DEFINE5(statx,
+2-		int, dfd, const char __user *, filename, unsigned, flags,
+3-		unsigned int, mask,
+4-		struct statx __user *, buffer)
+5:{
+1-SYSCALL_DEFINE2(lstat, const char __user *, filename,
+2-		struct __old_kernel_stat __user *, statbuf)
+3:{
+1-SYSCALL_DEFINE2(lstat64, const char __user *, filename,
+2-		struct stat64 __user *, statbuf)
+3:{
+1-SYSCALL_DEFINE2(fstatfs, unsigned int, fd, struct statfs __user *, buf)
+2:{
+1-SYSCALL_DEFINE3(fstatfs64, unsigned int, fd, size_t, sz, struct statfs64 __user *, buf)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(fstatfs, unsigned int, fd, struct compat_statfs __user *, buf)
+2:{
+1-COMPAT_SYSCALL_DEFINE3(fstatfs64, unsigned int, fd, compat_size_t, sz, struct compat_statfs64 __user *, buf)
+2:{
+1-SYSCALL_DEFINE2(fstat, unsigned int, fd, struct __old_kernel_stat __user *, statbuf)
+2:{
+1-SYSCALL_DEFINE2(fstat64, unsigned long, fd, struct stat64 __user *, statbuf)
+2:{
+1-SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
+2-		struct stat64 __user *, statbuf, int, flag)
+3:{
+1-SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
+2-		struct stat64 __user *, statbuf, int, flag)
+3:{
+1-SYSCALL_DEFINE2(chmod, const char __user *, filename, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE2(fchmod, unsigned int, fd, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE3(fchmodat, int, dfd, const char __user *, filename, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE3(fchmodat, int, dfd, const char __user *, filename, umode_t, mode)
+2:{
+1-SYSCALL_DEFINE3(chown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)
+2:{
+1-SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)
+2:{
+1-SYSCALL_DEFINE3(lchown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)
+2:{
+1-SYSCALL_DEFINE3(lchown, const char __user *, filename, uid_t, user, gid_t, group)
+2:{
+1-SYSCALL_DEFINE3(fchown16, unsigned int, fd, old_uid_t, user, old_gid_t, group)
+2:{
+1-SYSCALL_DEFINE5(fchownat, int, dfd, const char __user *, filename, uid_t, user,
+2-		gid_t, group, int, flag)
+3:{
+1-SYSCALL_DEFINE3(fchown, unsigned int, fd, uid_t, user, gid_t, group)
+2:{
+1-SYSCALL_DEFINE5(fchownat, int, dfd, const char __user *, filename, uid_t, user,
+2-		gid_t, group, int, flag)
+3:{
+1-SYSCALL_DEFINE2(utime, char __user *, filename, struct utimbuf __user *, times)
+2:{
+1-SYSCALL_DEFINE4(utimensat, int, dfd, const char __user *, filename,
+2-		struct timespec __user *, utimes, int, flags)
+3:{
+1-SYSCALL_DEFINE2(utimes, char __user *, filename,
+2-		struct timeval __user *, utimes)
+3:{
+1-COMPAT_SYSCALL_DEFINE2(utime, const char __user *, filename,
+2-		       struct compat_utimbuf __user *, t)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(utimensat, unsigned int, dfd, const char __user *, filename, struct compat_timespec __user *, t, int, flags)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(utimes, const char __user *, filename, struct compat_timeval __user *, t)
+2:{
+1-SYSCALL_DEFINE2(utimes, char __user *, filename,
+2-		struct timeval __user *, utimes)
+3:{
+1-COMPAT_SYSCALL_DEFINE2(utimes, const char __user *, filename, struct compat_timeval __user *, t)
+2:{
+1-SYSCALL_DEFINE3(futimesat, int, dfd, const char __user *, filename,
+2-		struct timeval __user *, utimes)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(futimesat, unsigned int, dfd, const char __user *, filename, struct compat_timeval __user *, t)
+2:{
+1-SYSCALL_DEFINE4(utimensat, int, dfd, const char __user *, filename,
+2-		struct timespec __user *, utimes, int, flags)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(utimensat, unsigned int, dfd, const char __user *, filename, struct compat_timespec __user *, t, int, flags)
+2:{
+1-SYSCALL_DEFINE2(access, const char __user *, filename, int, mode)
+2:{
+1-SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
+2:{
+1-SYSCALL_DEFINE5(setxattr, const char __user *, pathname,
+2-		const char __user *, name, const void __user *, value,
+3-		size_t, size, int, flags)
+4:{
+1-SYSCALL_DEFINE5(lsetxattr, const char __user *, pathname,
+2-		const char __user *, name, const void __user *, value,
+3-		size_t, size, int, flags)
+4:{
+1-SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,
+2-		const void __user *,value, size_t, size, int, flags)
+3:{
+1-SYSCALL_DEFINE4(getxattr, const char __user *, pathname,
+2-		const char __user *, name, void __user *, value, size_t, size)
+3:{
+1-SYSCALL_DEFINE4(lgetxattr, const char __user *, pathname,
+2-		const char __user *, name, void __user *, value, size_t, size)
+3:{
+1-SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,
+2-		void __user *, value, size_t, size)
+3:{
+1-SYSCALL_DEFINE3(listxattr, const char __user *, pathname, char __user *, list,
+2-		size_t, size)
+3:{
+1-SYSCALL_DEFINE3(llistxattr, const char __user *, pathname, char __user *, list,
+2-		size_t, size)
+3:{
+1-SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)
+2:{
+1-SYSCALL_DEFINE2(removexattr, const char __user *, pathname,
+2-		const char __user *, name)
+3:{
+1-SYSCALL_DEFINE2(lremovexattr, const char __user *, pathname,
+2-		const char __user *, name)
+3:{
+1-SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name)
+2:{
+1-COMPAT_SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd,
+2-		       compat_ulong_t, arg32)
+3:{
+1-SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd, unsigned long, arg)
+2:{
+1-SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd, unsigned long, arg)
+2:{	
+1-SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd,
+2-		unsigned long, arg)
+3:{	
+1-COMPAT_SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd,
+2-		       compat_ulong_t, arg)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd,
+2-		       compat_ulong_t, arg)
+3:{
+1-SYSCALL_DEFINE3(dup3, unsigned int, oldfd, unsigned int, newfd, int, flags)
+2:{
+1-SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)
+2:{
+1-SYSCALL_DEFINE1(dup, unsigned int, fildes)
+2:{
+1-SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)
+2:{
+1-SYSCALL_DEFINE3(dup3, unsigned int, oldfd, unsigned int, newfd, int, flags)
+2:{
+1-SYSCALL_DEFINE2(flock, unsigned int, fd, unsigned int, cmd)
+2:{
+1-SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)
+2:{
+1-SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,
+2-		char __user *, buf, int, bufsiz)
+3:{
+1-SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,
+2-		int, bufsiz)
+3:{
+1-SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)
+2:{
+1-SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(readv, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen)
+4:{
+1-SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(readv, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(pread64, unsigned int, fd, char __user *, ubuf,
+2-		       size_t, count, u32, dummy, SYSCALL_PAIR(offset))
+3:{
+1-SYSCALL_DEFINE4(pread64, unsigned int, fd, char __user *, buf,
+2-			size_t, count, loff_t, pos)
+3:{
+1-SYSCALL_DEFINE5(preadv, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h)
+3:{
+1-SYSCALL_DEFINE6(preadv2, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h,
+3-		rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE4(preadv64, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(preadv, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(preadv64v2, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos, rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(preadv2, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high,
+4-		rwf_t, flags)
+5:{
+1-SYSCALL_DEFINE5(preadv, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h)
+3:{
+1-SYSCALL_DEFINE6(preadv2, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h,
+3-		rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE4(preadv64, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(preadv, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(preadv64v2, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos, rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(preadv2, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high,
+4-		rwf_t, flags)
+5:{
+1-SYSCALL_DEFINE3(write, unsigned int, fd, const char __user *, buf,
+2-		size_t, count)
+3:{
+1-SYSCALL_DEFINE3(writev, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(writev, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *, vec,
+3-		compat_ulong_t, vlen)
+4:{
+1-SYSCALL_DEFINE3(writev, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(writev, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *, vec,
+3-		compat_ulong_t, vlen)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(pwrite64, unsigned int, fd, char __user *, ubuf,
+2-		       size_t, count, u32, dummy, SYSCALL_PAIR(offset))
+3:{
+1-SYSCALL_DEFINE4(pwrite64, unsigned int, fd, const char __user *, buf,
+2-			 size_t, count, loff_t, pos)
+3:{
+1-SYSCALL_DEFINE5(pwritev, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h)
+3:{
+1-SYSCALL_DEFINE6(pwritev2, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h,
+3-		rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE4(pwritev64, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(pwritev, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(pwritev64v2, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos, rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(pwritev2, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high, rwf_t, flags)
+4:{
+1-SYSCALL_DEFINE5(pwritev, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h)
+3:{
+1-SYSCALL_DEFINE6(pwritev2, unsigned long, fd, const struct iovec __user *, vec,
+2-		unsigned long, vlen, unsigned long, pos_l, unsigned long, pos_h,
+3-		rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE4(pwritev64, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(pwritev, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(pwritev64v2, unsigned long, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		unsigned long, vlen, loff_t, pos, rwf_t, flags)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(pwritev2, compat_ulong_t, fd,
+2-		const struct compat_iovec __user *,vec,
+3-		compat_ulong_t, vlen, u32, pos_low, u32, pos_high, rwf_t, flags)
+4:{
+1-SYSCALL_DEFINE3(lseek, unsigned int, fd, off_t, offset, unsigned int, whence)
+2:{
+1-COMPAT_SYSCALL_DEFINE3(lseek, unsigned int, fd, compat_off_t, offset, unsigned int, whence)
+2:{
+1-SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd, off_t __user *, offset, size_t, count)
+2:{
+1-SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd, loff_t __user *, offset, size_t, count)
+2:{
+1-COMPAT_SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd,
+2-		compat_off_t __user *, offset, compat_size_t, count)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd,
+2-		compat_loff_t __user *, offset, compat_size_t, count)
+3:{
+1-SYSCALL_DEFINE1(fdatasync, unsigned int, fd)
+2:{
+1-SYSCALL_DEFINE1(fsync, unsigned int, fd)
+2:{
+1-SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)
+2:{
+1-COMPAT_SYSCALL_DEFINE6(sync_file_range2, int, fd, unsigned int, flags,
+2-		       SYSCALL_PAIR(offset), SYSCALL_PAIR(nbytes))
+3:{
+1-SYSCALL_DEFINE4(sync_file_range, int, fd, loff_t, offset, loff_t, nbytes,
+2-				unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
+2-				 loff_t, offset, loff_t, nbytes)
+3:{
+1-COMPAT_SYSCALL_DEFINE6(sync_file_range2, int, fd, unsigned int, flags,
+2-		       SYSCALL_PAIR(offset), SYSCALL_PAIR(nbytes))
+3:{
+1-SYSCALL_DEFINE0(sync)
+2:{
+1-SYSCALL_DEFINE1(syncfs, int, fd)
+2:{
+1-SYSCALL_DEFINE4(sync_file_range, int, fd, loff_t, offset, loff_t, nbytes,
+2-				unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
+2-				 loff_t, offset, loff_t, nbytes)
+3:{
+1-SYSCALL_DEFINE1(syncfs, int, fd)
+2:{
+1-SYSCALL_DEFINE2(io_setup, unsigned, nr_events, aio_context_t __user *, ctxp)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(io_setup, unsigned, nr_events, u32 __user *, ctx32p)
+2:{
+1-SYSCALL_DEFINE1(io_destroy, aio_context_t, ctx)
+2:{
+1-SYSCALL_DEFINE3(io_submit, aio_context_t, ctx_id, long, nr,
+2-		struct iocb __user * __user *, iocbpp)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(io_submit, compat_aio_context_t, ctx_id,
+2-		       int, nr, u32 __user *, iocb)
+3:{
+1-SYSCALL_DEFINE3(io_cancel, aio_context_t, ctx_id, struct iocb __user *, iocb,
+2-		struct io_event __user *, result)
+3:{
+1-SYSCALL_DEFINE5(io_getevents, aio_context_t, ctx_id,
+2-		long, min_nr,
+3-		long, nr,
+4-		struct io_event __user *, events,
+5-		struct timespec __user *, timeout)
+6:{
+1-COMPAT_SYSCALL_DEFINE5(io_getevents, compat_aio_context_t, ctx_id,
+2-		       compat_long_t, min_nr,
+3-		       compat_long_t, nr,
+4-		       struct io_event __user *, events,
+5-		       struct compat_timespec __user *, timeout)
+6:{
+1-SYSCALL_DEFINE5(select, int, n, fd_set __user *, inp, fd_set __user *, outp,
+2-		fd_set __user *, exp, struct timeval __user *, tvp)
+3:{
+1-COMPAT_SYSCALL_DEFINE5(select, int, n, compat_ulong_t __user *, inp,
+2-	compat_ulong_t __user *, outp, compat_ulong_t __user *, exp,
+3-	struct compat_timeval __user *, tvp)
+4:{
+1-SYSCALL_DEFINE6(pselect6, int, n, fd_set __user *, inp, fd_set __user *, outp,
+2-		fd_set __user *, exp, struct timespec __user *, tsp,
+3-		void __user *, sig)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(pselect6, int, n, compat_ulong_t __user *, inp,
+2-	compat_ulong_t __user *, outp, compat_ulong_t __user *, exp,
+3-	struct compat_timespec __user *, tsp, void __user *, sig)
+4:{
+1-SYSCALL_DEFINE3(poll, struct pollfd __user *, ufds, unsigned int, nfds,
+2-		int, timeout_msecs)
+3:{
+1-SYSCALL_DEFINE5(ppoll, struct pollfd __user *, ufds, unsigned int, nfds,
+2-		struct timespec __user *, tsp, const sigset_t __user *, sigmask,
+3-		size_t, sigsetsize)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(ppoll, struct pollfd __user *, ufds,
+2-	unsigned int,  nfds, struct compat_timespec __user *, tsp,
+3-	const compat_sigset_t __user *, sigmask, compat_size_t, sigsetsize)
+4:{
+1-SYSCALL_DEFINE1(epoll_create1, int, flags)
+2:{
+1-SYSCALL_DEFINE1(epoll_create, int, size)
+2:{
+1-SYSCALL_DEFINE1(epoll_create1, int, flags)
+2:{
+1-SYSCALL_DEFINE4(epoll_ctl, int, epfd, int, op, int, fd,
+2-		struct epoll_event __user *, event)
+3:{
+1-SYSCALL_DEFINE4(epoll_wait, int, epfd, struct epoll_event __user *, events,
+2-		int, maxevents, int, timeout)
+3:{
+1-SYSCALL_DEFINE6(epoll_pwait, int, epfd, struct epoll_event __user *, events,
+2-		int, maxevents, int, timeout, const sigset_t __user *, sigmask,
+3-		size_t, sigsetsize)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(epoll_pwait, int, epfd,
+2-			struct epoll_event __user *, events,
+3-			int, maxevents, int, timeout,
+4-			const compat_sigset_t __user *, sigmask,
+5-			compat_size_t, sigsetsize)
+6:{
+1-SYSCALL_DEFINE1(inotify_init1, int, flags)
+2:{
+1-SYSCALL_DEFINE0(inotify_init)
+2:{
+1-SYSCALL_DEFINE1(inotify_init1, int, flags)
+2:{
+1-SYSCALL_DEFINE3(inotify_add_watch, int, fd, const char __user *, pathname,
+2-		u32, mask)
+3:{
+1-SYSCALL_DEFINE2(inotify_rm_watch, int, fd, __s32, wd)
+2:{
+1-SYSCALL_DEFINE2(fanotify_init, unsigned int, flags, unsigned int, event_f_flags)
+2:{
+1-SYSCALL_DEFINE5(fanotify_mark, int, fanotify_fd, unsigned int, flags,
+2-			      __u64, mask, int, dfd,
+3-			      const char  __user *, pathname)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(fanotify_mark,
+2-				int, fanotify_fd, unsigned int, flags,
+3-				__u32, mask0, __u32, mask1, int, dfd,
+4-				const char  __user *, pathname)
+5:{
+1-SYSCALL_DEFINE4(fadvise64_64, int, fd, loff_t, offset, loff_t, len, int, advice)
+2:{
+1-SYSCALL_DEFINE4(fadvise64, int, fd, loff_t, offset, size_t, len, int, advice)
+2:{
+1-SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)
+2:{
+1-SYSCALL_DEFINE3(getrandom, char __user *, buf, size_t, count,
+2-		unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE3(socket, int, family, int, type, int, protocol)
+2:{
+1-SYSCALL_DEFINE4(socketpair, int, family, int, type, int, protocol,
+2-		int __user *, usockvec)
+3:{
+1-SYSCALL_DEFINE2(socketcall, int, call, unsigned long __user *, args)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(socketcall, int, call, u32 __user *, args)
+2:{
+1-SYSCALL_DEFINE4(socketpair, int, family, int, type, int, protocol,
+2-		int __user *, usockvec)
+3:{
+1-SYSCALL_DEFINE5(setsockopt, int, fd, int, level, int, optname,
+2-		char __user *, optval, int, optlen)
+3:{
+1-COMPAT_SYSCALL_DEFINE5(setsockopt, int, fd, int, level, int, optname,
+2-		       char __user *, optval, unsigned int, optlen)
+3:{
+1-SYSCALL_DEFINE5(getsockopt, int, fd, int, level, int, optname,
+2-		char __user *, optval, int __user *, optlen)
+3:{
+1-COMPAT_SYSCALL_DEFINE5(getsockopt, int, fd, int, level, int, optname,
+2-		       char __user *, optval, int __user *, optlen)
+3:{
+1-SYSCALL_DEFINE3(getsockname, int, fd, struct sockaddr __user *, usockaddr,
+2-		int __user *, usockaddr_len)
+3:{
+1-SYSCALL_DEFINE3(getpeername, int, fd, struct sockaddr __user *, usockaddr,
+2-		int __user *, usockaddr_len)
+3:{
+1-SYSCALL_DEFINE3(bind, int, fd, struct sockaddr __user *, umyaddr, int, addrlen)
+2:{
+1-SYSCALL_DEFINE2(listen, int, fd, int, backlog)
+2:{
+1-SYSCALL_DEFINE4(accept4, int, fd, struct sockaddr __user *, upeer_sockaddr,
+2-		int __user *, upeer_addrlen, int, flags)
+3:{
+1-SYSCALL_DEFINE3(accept, int, fd, struct sockaddr __user *, upeer_sockaddr,
+2-		int __user *, upeer_addrlen)
+3:{
+1-SYSCALL_DEFINE4(accept4, int, fd, struct sockaddr __user *, upeer_sockaddr,
+2-		int __user *, upeer_addrlen, int, flags)
+3:{
+1-SYSCALL_DEFINE3(connect, int, fd, struct sockaddr __user *, uservaddr,
+2-		int, addrlen)
+3:{
+1-SYSCALL_DEFINE2(shutdown, int, fd, int, how)
+2:{
+1-SYSCALL_DEFINE6(recvfrom, int, fd, void __user *, ubuf, size_t, size,
+2-		unsigned int, flags, struct sockaddr __user *, addr,
+3-		int __user *, addr_len)
+4:{
+1-COMPAT_SYSCALL_DEFINE6(recvfrom, int, fd, void __user *, buf, compat_size_t, len,
+2-		       unsigned int, flags, struct sockaddr __user *, addr,
+3-		       int __user *, addrlen)
+4:{
+1-SYSCALL_DEFINE3(recvmsg, int, fd, struct user_msghdr __user *, msg,
+2-		unsigned int, flags)
+3:{
+1-COMPAT_SYSCALL_DEFINE3(recvmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags)
+2:{
+1-SYSCALL_DEFINE5(recvmmsg, int, fd, struct mmsghdr __user *, mmsg,
+2-		unsigned int, vlen, unsigned int, flags,
+3-		struct timespec __user *, timeout)
+4:{
+1-COMPAT_SYSCALL_DEFINE5(recvmmsg, int, fd, struct compat_mmsghdr __user *, mmsg,
+2-		       unsigned int, vlen, unsigned int, flags,
+3-		       struct compat_timespec __user *, timeout)
+4:{
+1-SYSCALL_DEFINE6(sendto, int, fd, void __user *, buff, size_t, len,
+2-		unsigned int, flags, struct sockaddr __user *, addr,
+3-		int, addr_len)
+4:{
+1-SYSCALL_DEFINE3(sendmsg, int, fd, struct user_msghdr __user *, msg, unsigned int, flags)
+2:{
+1-COMPAT_SYSCALL_DEFINE3(sendmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags)
+2:{
+1-SYSCALL_DEFINE4(sendmmsg, int, fd, struct mmsghdr __user *, mmsg,
+2-		unsigned int, vlen, unsigned int, flags)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(sendmmsg, int, fd, struct compat_mmsghdr __user *, mmsg,
+2-		       unsigned int, vlen, unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE2(sethostname, char __user *, name, int, len)
+2:{
+1-SYSCALL_DEFINE2(setdomainname, char __user *, name, int, len)
+2:{
+1-SYSCALL_DEFINE3(bpf, int, cmd, union bpf_attr __user *, uattr, unsigned int, size)
+2:{
+1-SYSCALL_DEFINE2(timerfd_create, int, clockid, int, flags)
+2:{
+1-SYSCALL_DEFINE4(timerfd_settime, int, ufd, int, flags,
+2-		const struct itimerspec __user *, utmr,
+3-		struct itimerspec __user *, otmr)
+4:{
+1-COMPAT_SYSCALL_DEFINE4(timerfd_settime, int, ufd, int, flags,
+2-		const struct compat_itimerspec __user *, utmr,
+3-		struct compat_itimerspec __user *, otmr)
+4:{
+1-SYSCALL_DEFINE2(timerfd_gettime, int, ufd, struct itimerspec __user *, otmr)
+2:{
+1-COMPAT_SYSCALL_DEFINE2(timerfd_gettime, int, ufd,
+2-		struct compat_itimerspec __user *, otmr)
+3:{
+1-SYSCALL_DEFINE3(init_module, void __user *, umod,
+2-		unsigned long, len, const char __user *, uargs)
+3:{
+1-SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
+2:{
+1-SYSCALL_DEFINE2(delete_module, const char __user *, name_user,
+2-		unsigned int, flags)
+3:{
+1-SYSCALL_DEFINE2(pivot_root, const char __user *, new_root,
+2-		const char __user *, put_old)
+3:{
+1-SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
+2:{
+1-SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
+2:{
+1-SYSCALL_DEFINE5(mount, char __user *, dev_name, char __user *, dir_name,
+2-		char __user *, type, unsigned long, flags, void __user *, data)
+3:{
+1-COMPAT_SYSCALL_DEFINE5(mount, const char __user *, dev_name,
+2-		       const char __user *, dir_name,
+3-		       const char __user *, type, compat_ulong_t, flags,
+4-		       const void __user *, data)
+5:{
+1-SYSCALL_DEFINE3(syslog, int, type, char __user *, buf, int, len)
+2:{
+1-SYSCALL_DEFINE1(iopl, unsigned int, level)
+2:{
+1-SYSCALL_DEFINE1(personality, unsigned int, personality)
+2:{
+1-SYSCALL_DEFINE0(vhangup)
+2:{
+1-SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
+2-		void __user *, arg)
+3:{
+1-SYSCALL_DEFINE4(kexec_load, unsigned long, entry, unsigned long, nr_segments,
+2-		struct kexec_segment __user *, segments, unsigned long, flags)
+3:{
+1-COMPAT_SYSCALL_DEFINE4(kexec_load, compat_ulong_t, entry,
+2-		       compat_ulong_t, nr_segments,
+3-		       struct compat_kexec_segment __user *, segments,
+4-		       compat_ulong_t, flags)
+5:{
+1-SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
+2-		unsigned long, cmdline_len, const char __user *, cmdline_ptr,
+3-		unsigned long, flags)
+4:{

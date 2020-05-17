@@ -1,0 +1,681 @@
+./ipc/msg.c:266:SYSCALL_DEFINE2(msgget, key_t, key, int, msgflg)
+./ipc/msg.c:528:SYSCALL_DEFINE3(msgctl, int, msqid, int, cmd, struct msqid_ds __user *, buf)
+./ipc/msg.c:641:COMPAT_SYSCALL_DEFINE3(msgctl, int, msqid, int, cmd, void __user *, uptr)
+./ipc/msg.c:847:SYSCALL_DEFINE4(msgsnd, int, msqid, struct msgbuf __user *, msgp, size_t, msgsz,
+./ipc/msg.c:864:COMPAT_SYSCALL_DEFINE4(msgsnd, int, msqid, compat_uptr_t, msgp,
+./ipc/msg.c:1130:SYSCALL_DEFINE5(msgrcv, int, msqid, struct msgbuf __user *, msgp, size_t, msgsz,
+./ipc/msg.c:1151:COMPAT_SYSCALL_DEFINE5(msgrcv, int, msqid, compat_uptr_t, msgp,
+./ipc/shm.c:678:SYSCALL_DEFINE3(shmget, key_t, key, size_t, size, int, shmflg)
+./ipc/shm.c:1052:SYSCALL_DEFINE3(shmctl, int, shmid, int, cmd, struct shmid_ds __user *, buf)
+./ipc/shm.c:1225:COMPAT_SYSCALL_DEFINE3(shmctl, int, shmid, int, cmd, void __user *, uptr)
+./ipc/shm.c:1465:SYSCALL_DEFINE3(shmat, int, shmid, char __user *, shmaddr, int, shmflg)
+./ipc/shm.c:1483:COMPAT_SYSCALL_DEFINE3(shmat, int, shmid, compat_uptr_t, shmaddr, int, shmflg)
+./ipc/shm.c:1500:SYSCALL_DEFINE1(shmdt, char __user *, shmaddr)
+./ipc/mqueue.c:854:SYSCALL_DEFINE4(mq_open, const char __user *, u_name, int, oflag, umode_t, mode,
+./ipc/mqueue.c:864:SYSCALL_DEFINE1(mq_unlink, const char __user *, u_name)
+./ipc/mqueue.c:1190:SYSCALL_DEFINE5(mq_timedsend, mqd_t, mqdes, const char __user *, u_msg_ptr,
+./ipc/mqueue.c:1204:SYSCALL_DEFINE5(mq_timedreceive, mqd_t, mqdes, char __user *, u_msg_ptr,
+./ipc/mqueue.c:1349:SYSCALL_DEFINE2(mq_notify, mqd_t, mqdes,
+./ipc/mqueue.c:1405:SYSCALL_DEFINE3(mq_getsetattr, mqd_t, mqdes,
+./ipc/mqueue.c:1471:COMPAT_SYSCALL_DEFINE4(mq_open, const char __user *, u_name,
+./ipc/mqueue.c:1494:COMPAT_SYSCALL_DEFINE5(mq_timedsend, mqd_t, mqdes,
+./ipc/mqueue.c:1509:COMPAT_SYSCALL_DEFINE5(mq_timedreceive, mqd_t, mqdes,
+./ipc/mqueue.c:1524:COMPAT_SYSCALL_DEFINE2(mq_notify, mqd_t, mqdes,
+./ipc/mqueue.c:1538:COMPAT_SYSCALL_DEFINE3(mq_getsetattr, mqd_t, mqdes,
+./ipc/syscall.c:17:SYSCALL_DEFINE6(ipc, unsigned int, call, int, first, unsigned long, second,
+./ipc/syscall.c:115:COMPAT_SYSCALL_DEFINE6(ipc, u32, call, int, first, int, second,
+./ipc/sem.c:558:SYSCALL_DEFINE3(semget, key_t, key, int, nsems, int, semflg)
+./ipc/sem.c:1568:SYSCALL_DEFINE4(semctl, int, semid, int, semnum, int, cmd, unsigned long, arg)
+./ipc/sem.c:1670:COMPAT_SYSCALL_DEFINE4(semctl, int, semid, int, semnum, int, cmd, int, arg)
+./ipc/sem.c:2112:SYSCALL_DEFINE4(semtimedop, int, semid, struct sembuf __user *, tsops,
+./ipc/sem.c:2125:COMPAT_SYSCALL_DEFINE4(semtimedop, int, semid, struct sembuf __user *, tsems,
+./ipc/sem.c:2139:SYSCALL_DEFINE3(semop, int, semid, struct sembuf __user *, tsops,
+./net/socket.c:1325:SYSCALL_DEFINE3(socket, int, family, int, type, int, protocol)
+./net/socket.c:1366:SYSCALL_DEFINE4(socketpair, int, family, int, type, int, protocol,
+./net/socket.c:1475:SYSCALL_DEFINE3(bind, int, fd, struct sockaddr __user *, umyaddr, int, addrlen)
+./net/socket.c:1504:SYSCALL_DEFINE2(listen, int, fd, int, backlog)
+./net/socket.c:1537:SYSCALL_DEFINE4(accept4, int, fd, struct sockaddr __user *, upeer_sockaddr,
+./net/socket.c:1618:SYSCALL_DEFINE3(accept, int, fd, struct sockaddr __user *, upeer_sockaddr,
+./net/socket.c:1636:SYSCALL_DEFINE3(connect, int, fd, struct sockaddr __user *, uservaddr,
+./net/socket.c:1668:SYSCALL_DEFINE3(getsockname, int, fd, struct sockaddr __user *, usockaddr,
+./net/socket.c:1699:SYSCALL_DEFINE3(getpeername, int, fd, struct sockaddr __user *, usockaddr,
+./net/socket.c:1731:SYSCALL_DEFINE6(sendto, int, fd, void __user *, buff, size_t, len,
+./net/socket.c:1775:SYSCALL_DEFINE4(send, int, fd, void __user *, buff, size_t, len,
+./net/socket.c:1787:SYSCALL_DEFINE6(recvfrom, int, fd, void __user *, ubuf, size_t, size,
+./net/socket.c:1833:SYSCALL_DEFINE4(recv, int, fd, void __user *, ubuf, size_t, size,
+./net/socket.c:1844:SYSCALL_DEFINE5(setsockopt, int, fd, int, level, int, optname,
+./net/socket.c:1878:SYSCALL_DEFINE5(getsockopt, int, fd, int, level, int, optname,
+./net/socket.c:1908:SYSCALL_DEFINE2(shutdown, int, fd, int, how)
+./net/socket.c:2103:SYSCALL_DEFINE3(sendmsg, int, fd, struct user_msghdr __user *, msg, unsigned int, flags)
+./net/socket.c:2178:SYSCALL_DEFINE4(sendmmsg, int, fd, struct mmsghdr __user *, mmsg,
+./net/socket.c:2273:SYSCALL_DEFINE3(recvmsg, int, fd, struct user_msghdr __user *, msg,
+./net/socket.c:2394:SYSCALL_DEFINE5(recvmmsg, int, fd, struct mmsghdr __user *, mmsg,
+./net/socket.c:2439:SYSCALL_DEFINE2(socketcall, int, call, unsigned long __user *, args)
+./net/compat.c:387:COMPAT_SYSCALL_DEFINE5(setsockopt, int, fd, int, level, int, optname,
+./net/compat.c:511:COMPAT_SYSCALL_DEFINE5(getsockopt, int, fd, int, level, int, optname,
+./net/compat.c:742:COMPAT_SYSCALL_DEFINE3(sendmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags)
+./net/compat.c:747:COMPAT_SYSCALL_DEFINE4(sendmmsg, int, fd, struct compat_mmsghdr __user *, mmsg,
+./net/compat.c:754:COMPAT_SYSCALL_DEFINE3(recvmsg, int, fd, struct compat_msghdr __user *, msg, unsigned int, flags)
+./net/compat.c:759:COMPAT_SYSCALL_DEFINE4(recv, int, fd, void __user *, buf, compat_size_t, len, unsigned int, flags)
+./net/compat.c:764:COMPAT_SYSCALL_DEFINE6(recvfrom, int, fd, void __user *, buf, compat_size_t, len,
+./net/compat.c:771:COMPAT_SYSCALL_DEFINE5(recvmmsg, int, fd, struct compat_mmsghdr __user *, mmsg,
+./net/compat.c:793:COMPAT_SYSCALL_DEFINE2(socketcall, int, call, u32 __user *, args)
+./mm/process_vm_access.c:300:SYSCALL_DEFINE6(process_vm_readv, pid_t, pid, const struct iovec __user *, lvec,
+./mm/process_vm_access.c:307:SYSCALL_DEFINE6(process_vm_writev, pid_t, pid,
+./mm/process_vm_access.c:356:COMPAT_SYSCALL_DEFINE6(process_vm_readv, compat_pid_t, pid,
+./mm/process_vm_access.c:367:COMPAT_SYSCALL_DEFINE6(process_vm_writev, compat_pid_t, pid,
+./mm/readahead.c:584:SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)
+./mm/nommu.c:499:SYSCALL_DEFINE1(brk, unsigned long, brk)
+./mm/nommu.c:1426:SYSCALL_DEFINE6(mmap_pgoff, unsigned long, addr, unsigned long, len,
+./mm/nommu.c:1460:SYSCALL_DEFINE1(old_mmap, struct mmap_arg_struct __user *, arg)
+./mm/nommu.c:1653:SYSCALL_DEFINE2(munmap, unsigned long, addr, size_t, len)
+./mm/nommu.c:1729:SYSCALL_DEFINE5(mremap, unsigned long, addr, unsigned long, old_len,
+./mm/migrate.c:1773:SYSCALL_DEFINE6(move_pages, pid_t, pid, unsigned long, nr_pages,
+./mm/msync.c:32:SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)
+./mm/fadvise.c:29:SYSCALL_DEFINE4(fadvise64_64, int, fd, loff_t, offset, loff_t, len, int, advice)
+./mm/fadvise.c:194:SYSCALL_DEFINE4(fadvise64, int, fd, loff_t, offset, size_t, len, int, advice)
+./mm/swapfile.c:2527:SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
+./mm/swapfile.c:3107:SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
+./mm/mprotect.c:565:SYSCALL_DEFINE3(mprotect, unsigned long, start, size_t, len,
+./mm/mprotect.c:573:SYSCALL_DEFINE4(pkey_mprotect, unsigned long, start, size_t, len,
+./mm/mprotect.c:579:SYSCALL_DEFINE2(pkey_alloc, unsigned long, flags, unsigned long, init_val)
+./mm/mprotect.c:609:SYSCALL_DEFINE1(pkey_free, int, pkey)
+./mm/mremap.c:519:SYSCALL_DEFINE5(mremap, unsigned long, addr, unsigned long, old_len,
+./mm/mincore.c:245:SYSCALL_DEFINE3(mincore, unsigned long, start, size_t, len,
+./mm/mmap.c:183:SYSCALL_DEFINE1(brk, unsigned long, brk)
+./mm/mmap.c:1520:SYSCALL_DEFINE6(mmap_pgoff, unsigned long, addr, unsigned long, len,
+./mm/mmap.c:1581:SYSCALL_DEFINE1(old_mmap, struct mmap_arg_struct __user *, arg)
+./mm/mmap.c:2787:SYSCALL_DEFINE2(munmap, unsigned long, addr, size_t, len)
+./mm/mmap.c:2798:SYSCALL_DEFINE5(remap_file_pages, unsigned long, start, unsigned long, size,
+./mm/shmem.c:3723:SYSCALL_DEFINE2(memfd_create,
+./mm/mempolicy.c:1367:SYSCALL_DEFINE6(mbind, unsigned long, start, unsigned long, len,
+./mm/mempolicy.c:1390:SYSCALL_DEFINE3(set_mempolicy, int, mode, const unsigned long __user *, nmask,
+./mm/mempolicy.c:1409:SYSCALL_DEFINE4(migrate_pages, pid_t, pid, unsigned long, maxnode,
+./mm/mempolicy.c:1509:SYSCALL_DEFINE5(get_mempolicy, int __user *, policy,
+./mm/mempolicy.c:1538:COMPAT_SYSCALL_DEFINE5(get_mempolicy, int __user *, policy,
+./mm/mempolicy.c:1568:COMPAT_SYSCALL_DEFINE3(set_mempolicy, int, mode, compat_ulong_t __user *, nmask,
+./mm/mempolicy.c:1589:COMPAT_SYSCALL_DEFINE6(mbind, compat_ulong_t, start, compat_ulong_t, len,
+./mm/mlock.c:713:SYSCALL_DEFINE2(mlock, unsigned long, start, size_t, len)
+./mm/mlock.c:718:SYSCALL_DEFINE3(mlock2, unsigned long, start, size_t, len, int, flags)
+./mm/mlock.c:731:SYSCALL_DEFINE2(munlock, unsigned long, start, size_t, len)
+./mm/mlock.c:794:SYSCALL_DEFINE1(mlockall, int, flags)
+./mm/mlock.c:825:SYSCALL_DEFINE0(munlockall)
+./mm/madvise.c:791:SYSCALL_DEFINE3(madvise, unsigned long, start, size_t, len_in, int, behavior)
+./arch/microblaze/kernel/sys_microblaze.c:36:SYSCALL_DEFINE6(mmap, unsigned long, addr, unsigned long, len,
+./arch/microblaze/kernel/sys_microblaze.c:46:SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
+./arch/powerpc/platforms/cell/spu_syscalls.c:69:SYSCALL_DEFINE4(spu_create, const char __user *, name, unsigned int, flags,
+./arch/powerpc/kernel/syscalls.c:65:SYSCALL_DEFINE6(mmap2, unsigned long, addr, size_t, len,
+./arch/powerpc/kernel/syscalls.c:72:SYSCALL_DEFINE6(mmap, unsigned long, addr, size_t, len,
+./arch/tile/mm/fault.c:77:SYSCALL_DEFINE1(cmpxchg_badaddr, unsigned long, address)
+./arch/tile/kernel/sys.c:39:SYSCALL_DEFINE3(cacheflush, unsigned long, addr, unsigned long, len,
+./arch/tile/kernel/sys.c:84:SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
+./arch/tile/kernel/sys.c:96:SYSCALL_DEFINE6(mmap, unsigned long, addr, unsigned long, len,
+./arch/tile/kernel/compat.c:42:COMPAT_SYSCALL_DEFINE4(truncate64, char __user *, filename, u32, dummy,
+./arch/tile/kernel/compat.c:48:COMPAT_SYSCALL_DEFINE4(ftruncate64, unsigned int, fd, u32, dummy,
+./arch/tile/kernel/compat.c:54:COMPAT_SYSCALL_DEFINE6(pread64, unsigned int, fd, char __user *, ubuf,
+./arch/tile/kernel/compat.c:61:COMPAT_SYSCALL_DEFINE6(pwrite64, unsigned int, fd, char __user *, ubuf,
+./arch/tile/kernel/compat.c:68:COMPAT_SYSCALL_DEFINE6(sync_file_range2, int, fd, unsigned int, flags,
+./arch/tile/kernel/compat.c:76:COMPAT_SYSCALL_DEFINE6(fallocate, int, fd, int, mode,
+./arch/tile/kernel/compat.c:90:COMPAT_SYSCALL_DEFINE5(llseek, unsigned int, fd, unsigned int, offset_high,
+./arch/tile/kernel/signal.c:79:SYSCALL_DEFINE0(rt_sigreturn)
+./arch/blackfin/kernel/sys_bfin.c:77:SYSCALL_DEFINE3(cacheflush, unsigned long, addr, unsigned long, len, int, op)
+./arch/mips/mm/cache.c:74:SYSCALL_DEFINE3(cacheflush, unsigned long, addr, unsigned long, bytes,
+./arch/mips/kernel/signal32.c:38:SYSCALL_DEFINE3(32_sigaction, long, sig, const struct compat_sigaction __user *, act,
+./arch/mips/kernel/syscall.c:60:SYSCALL_DEFINE6(mips_mmap, unsigned long, addr, unsigned long, len,
+./arch/mips/kernel/syscall.c:69:SYSCALL_DEFINE6(mips_mmap2, unsigned long, addr, unsigned long, len,
+./arch/mips/kernel/syscall.c:82:SYSCALL_DEFINE1(set_thread_area, unsigned long, addr)
+./arch/mips/kernel/syscall.c:200:SYSCALL_DEFINE3(sysmips, long, cmd, long, arg1, long, arg2)
+./arch/mips/kernel/syscall.c:232:SYSCALL_DEFINE3(cachectl, char *, addr, int, nbytes, int, op)
+./arch/mips/kernel/linux32.c:64:SYSCALL_DEFINE6(32_mmap2, unsigned long, addr, unsigned long, len,
+./arch/mips/kernel/linux32.c:82:SYSCALL_DEFINE4(32_truncate64, const char __user *, path,
+./arch/mips/kernel/linux32.c:88:SYSCALL_DEFINE4(32_ftruncate64, unsigned long, fd, unsigned long, __dummy,
+./arch/mips/kernel/linux32.c:94:SYSCALL_DEFINE5(32_llseek, unsigned int, fd, unsigned int, offset_high,
+./arch/mips/kernel/linux32.c:105:SYSCALL_DEFINE6(32_pread, unsigned long, fd, char __user *, buf, size_t, count,
+./arch/mips/kernel/linux32.c:111:SYSCALL_DEFINE6(32_pwrite, unsigned int, fd, const char __user *, buf,
+./arch/mips/kernel/linux32.c:117:SYSCALL_DEFINE1(32_personality, unsigned long, personality)
+./arch/mips/kernel/signal.c:547:SYSCALL_DEFINE1(sigsuspend, sigset_t __user *, uset)
+./arch/mips/kernel/signal.c:554:SYSCALL_DEFINE3(sigaction, int, sig, const struct sigaction __user *, act,
+./arch/arm64/kernel/sys.c:40:SYSCALL_DEFINE1(arm64_personality, unsigned int, personality)
+./arch/sparc/kernel/sys_sparc_32.c:168:SYSCALL_DEFINE3(sparc_sigaction, int, sig,
+./arch/sparc/kernel/sys_sparc_32.c:176:SYSCALL_DEFINE5(rt_sigaction, int, sig,
+./arch/sparc/kernel/sys_sparc32.c:147:COMPAT_SYSCALL_DEFINE3(sparc_sigaction, int, sig,
+./arch/sparc/kernel/sys_sparc32.c:155:COMPAT_SYSCALL_DEFINE5(rt_sigaction, int, sig,
+./arch/sparc/kernel/sys_sparc_64.c:313:SYSCALL_DEFINE1(sparc_pipe_real, struct pt_regs *, regs)
+./arch/sparc/kernel/sys_sparc_64.c:333:SYSCALL_DEFINE6(sparc_ipc, unsigned int, call, int, first, unsigned long, second,
+./arch/sparc/kernel/sys_sparc_64.c:417:SYSCALL_DEFINE1(sparc64_personality, unsigned long, personality)
+./arch/sparc/kernel/sys_sparc_64.c:451:SYSCALL_DEFINE6(mmap, unsigned long, addr, unsigned long, len,
+./arch/sparc/kernel/sys_sparc_64.c:466:SYSCALL_DEFINE2(64_munmap, unsigned long, addr, size_t, len)
+./arch/sparc/kernel/sys_sparc_64.c:474:SYSCALL_DEFINE5(64_mremap, unsigned long, addr,	unsigned long, old_len,
+./arch/sparc/kernel/sys_sparc_64.c:528:SYSCALL_DEFINE2(getdomainname, char __user *, name, int, len)
+./arch/sparc/kernel/sys_sparc_64.c:555:SYSCALL_DEFINE5(utrap_install, utrap_entry_t, type,
+./arch/sparc/kernel/sys_sparc_64.c:624:SYSCALL_DEFINE5(rt_sigaction, int, sig, const struct sigaction __user *, act,
+./arch/arc/mm/cache.c:1127:SYSCALL_DEFINE3(cacheflush, uint32_t, start, uint32_t, sz, uint32_t, flags)
+./arch/arc/kernel/process.c:26:SYSCALL_DEFINE1(arc_settls, void *, user_tls_data_ptr)
+./arch/arc/kernel/process.c:42:SYSCALL_DEFINE0(arc_gettls)
+./arch/arc/kernel/process.c:47:SYSCALL_DEFINE3(arc_usr_cmpxchg, int *, uaddr, int, expected, int, new)
+./arch/arc/kernel/signal.c:154:SYSCALL_DEFINE0(rt_sigreturn)
+./arch/s390/pci/pci_mmio.c:35:SYSCALL_DEFINE3(s390_pci_mmio_write, unsigned long, mmio_addr,
+./arch/s390/pci/pci_mmio.c:75:SYSCALL_DEFINE3(s390_pci_mmio_read, unsigned long, mmio_addr,
+./arch/s390/kernel/sys_s390.c:49:SYSCALL_DEFINE1(mmap2, struct s390_mmap_arg_struct __user *, arg)
+./arch/s390/kernel/sys_s390.c:64:SYSCALL_DEFINE5(s390_ipc, uint, call, int, first, unsigned long, second,
+./arch/s390/kernel/sys_s390.c:80:SYSCALL_DEFINE1(s390_personality, unsigned int, personality)
+./arch/s390/kernel/compat_signal.c:293:COMPAT_SYSCALL_DEFINE0(sigreturn)
+./arch/s390/kernel/compat_signal.c:316:COMPAT_SYSCALL_DEFINE0(rt_sigreturn)
+./arch/s390/kernel/compat_linux.c:89:COMPAT_SYSCALL_DEFINE3(s390_chown16, const char __user *, filename,
+./arch/s390/kernel/compat_linux.c:95:COMPAT_SYSCALL_DEFINE3(s390_lchown16, const char __user *,
+./arch/s390/kernel/compat_linux.c:101:COMPAT_SYSCALL_DEFINE3(s390_fchown16, unsigned int, fd, u16, user, u16, group)
+./arch/s390/kernel/compat_linux.c:106:COMPAT_SYSCALL_DEFINE2(s390_setregid16, u16, rgid, u16, egid)
+./arch/s390/kernel/compat_linux.c:111:COMPAT_SYSCALL_DEFINE1(s390_setgid16, u16, gid)
+./arch/s390/kernel/compat_linux.c:116:COMPAT_SYSCALL_DEFINE2(s390_setreuid16, u16, ruid, u16, euid)
+./arch/s390/kernel/compat_linux.c:121:COMPAT_SYSCALL_DEFINE1(s390_setuid16, u16, uid)
+./arch/s390/kernel/compat_linux.c:126:COMPAT_SYSCALL_DEFINE3(s390_setresuid16, u16, ruid, u16, euid, u16, suid)
+./arch/s390/kernel/compat_linux.c:132:COMPAT_SYSCALL_DEFINE3(s390_getresuid16, u16 __user *, ruidp,
+./arch/s390/kernel/compat_linux.c:150:COMPAT_SYSCALL_DEFINE3(s390_setresgid16, u16, rgid, u16, egid, u16, sgid)
+./arch/s390/kernel/compat_linux.c:156:COMPAT_SYSCALL_DEFINE3(s390_getresgid16, u16 __user *, rgidp,
+./arch/s390/kernel/compat_linux.c:174:COMPAT_SYSCALL_DEFINE1(s390_setfsuid16, u16, uid)
+./arch/s390/kernel/compat_linux.c:179:COMPAT_SYSCALL_DEFINE1(s390_setfsgid16, u16, gid)
+./arch/s390/kernel/compat_linux.c:222:COMPAT_SYSCALL_DEFINE2(s390_getgroups16, int, gidsetsize, u16 __user *, grouplist)
+./arch/s390/kernel/compat_linux.c:247:COMPAT_SYSCALL_DEFINE2(s390_setgroups16, int, gidsetsize, u16 __user *, grouplist)
+./arch/s390/kernel/compat_linux.c:273:COMPAT_SYSCALL_DEFINE0(s390_getuid16)
+./arch/s390/kernel/compat_linux.c:278:COMPAT_SYSCALL_DEFINE0(s390_geteuid16)
+./arch/s390/kernel/compat_linux.c:283:COMPAT_SYSCALL_DEFINE0(s390_getgid16)
+./arch/s390/kernel/compat_linux.c:288:COMPAT_SYSCALL_DEFINE0(s390_getegid16)
+./arch/s390/kernel/compat_linux.c:294:COMPAT_SYSCALL_DEFINE5(s390_ipc, uint, call, int, first, compat_ulong_t, second,
+./arch/s390/kernel/compat_linux.c:303:COMPAT_SYSCALL_DEFINE3(s390_truncate64, const char __user *, path, u32, high, u32, low)
+./arch/s390/kernel/compat_linux.c:308:COMPAT_SYSCALL_DEFINE3(s390_ftruncate64, unsigned int, fd, u32, high, u32, low)
+./arch/s390/kernel/compat_linux.c:313:COMPAT_SYSCALL_DEFINE5(s390_pread64, unsigned int, fd, char __user *, ubuf,
+./arch/s390/kernel/compat_linux.c:321:COMPAT_SYSCALL_DEFINE5(s390_pwrite64, unsigned int, fd, const char __user *, ubuf,
+./arch/s390/kernel/compat_linux.c:329:COMPAT_SYSCALL_DEFINE4(s390_readahead, int, fd, u32, high, u32, low, s32, count)
+./arch/s390/kernel/compat_linux.c:383:COMPAT_SYSCALL_DEFINE2(s390_stat64, const char __user *, filename, struct stat64_emu31 __user *, statbuf)
+./arch/s390/kernel/compat_linux.c:392:COMPAT_SYSCALL_DEFINE2(s390_lstat64, const char __user *, filename, struct stat64_emu31 __user *, statbuf)
+./arch/s390/kernel/compat_linux.c:401:COMPAT_SYSCALL_DEFINE2(s390_fstat64, unsigned int, fd, struct stat64_emu31 __user *, statbuf)
+./arch/s390/kernel/compat_linux.c:410:COMPAT_SYSCALL_DEFINE4(s390_fstatat64, unsigned int, dfd, const char __user *, filename,
+./arch/s390/kernel/compat_linux.c:437:COMPAT_SYSCALL_DEFINE1(s390_old_mmap, struct mmap_arg_struct_emu31 __user *, arg)
+./arch/s390/kernel/compat_linux.c:449:COMPAT_SYSCALL_DEFINE1(s390_mmap2, struct mmap_arg_struct_emu31 __user *, arg)
+./arch/s390/kernel/compat_linux.c:458:COMPAT_SYSCALL_DEFINE3(s390_read, unsigned int, fd, char __user *, buf, compat_size_t, count)
+./arch/s390/kernel/compat_linux.c:466:COMPAT_SYSCALL_DEFINE3(s390_write, unsigned int, fd, const char __user *, buf, compat_size_t, count)
+./arch/s390/kernel/compat_linux.c:480:COMPAT_SYSCALL_DEFINE5(s390_fadvise64, int, fd, u32, high, u32, low, compat_size_t, len, int, advise)
+./arch/s390/kernel/compat_linux.c:496:COMPAT_SYSCALL_DEFINE1(s390_fadvise64_64, struct fadvise64_64_args __user *, args)
+./arch/s390/kernel/compat_linux.c:509:COMPAT_SYSCALL_DEFINE6(s390_sync_file_range, int, fd, u32, offhigh, u32, offlow,
+./arch/s390/kernel/compat_linux.c:516:COMPAT_SYSCALL_DEFINE6(s390_fallocate, int, fd, int, mode, u32, offhigh, u32, offlow,
+./arch/s390/kernel/runtime_instr.c:62:SYSCALL_DEFINE1(s390_runtime_instr, int, command)
+./arch/s390/kernel/guarded_storage.c:112:SYSCALL_DEFINE2(s390_guarded_storage, int, command,
+./arch/s390/kernel/signal.c:217:SYSCALL_DEFINE0(sigreturn)
+./arch/s390/kernel/signal.c:239:SYSCALL_DEFINE0(rt_sigreturn)
+./arch/alpha/kernel/osf_sys.c:58:SYSCALL_DEFINE1(osf_brk, unsigned long, brk)
+./arch/alpha/kernel/osf_sys.c:69:SYSCALL_DEFINE4(osf_set_program_attributes, unsigned long, text_start,
+./arch/alpha/kernel/osf_sys.c:149:SYSCALL_DEFINE4(osf_getdirentries, unsigned int, fd,
+./arch/alpha/kernel/osf_sys.c:177:SYSCALL_DEFINE6(osf_mmap, unsigned long, addr, unsigned long, len,
+./arch/alpha/kernel/osf_sys.c:343:SYSCALL_DEFINE3(osf_statfs, const char __user *, pathname,
+./arch/alpha/kernel/osf_sys.c:353:SYSCALL_DEFINE2(osf_stat, char __user *, name, struct osf_stat __user *, buf)
+./arch/alpha/kernel/osf_sys.c:365:SYSCALL_DEFINE2(osf_lstat, char __user *, name, struct osf_stat __user *, buf)
+./arch/alpha/kernel/osf_sys.c:377:SYSCALL_DEFINE2(osf_fstat, int, fd, struct osf_stat __user *, buf)
+./arch/alpha/kernel/osf_sys.c:389:SYSCALL_DEFINE3(osf_fstatfs, unsigned long, fd,
+./arch/alpha/kernel/osf_sys.c:399:SYSCALL_DEFINE3(osf_statfs64, char __user *, pathname,
+./arch/alpha/kernel/osf_sys.c:409:SYSCALL_DEFINE3(osf_fstatfs64, unsigned long, fd,
+./arch/alpha/kernel/osf_sys.c:507:SYSCALL_DEFINE4(osf_mount, unsigned long, typenr, const char __user *, path,
+./arch/alpha/kernel/osf_sys.c:530:SYSCALL_DEFINE1(osf_utsname, char __user *, name)
+./arch/alpha/kernel/osf_sys.c:548:SYSCALL_DEFINE0(getpagesize)
+./arch/alpha/kernel/osf_sys.c:553:SYSCALL_DEFINE0(getdtablesize)
+./arch/alpha/kernel/osf_sys.c:561:SYSCALL_DEFINE2(osf_getdomainname, char __user *, name, int, namelen)
+./arch/alpha/kernel/osf_sys.c:647:SYSCALL_DEFINE2(osf_proplist_syscall, enum pl_code, code,
+./arch/alpha/kernel/osf_sys.c:685:SYSCALL_DEFINE2(osf_sigstack, struct sigstack __user *, uss,
+./arch/alpha/kernel/osf_sys.c:725:SYSCALL_DEFINE3(osf_sysinfo, int, command, char __user *, buf, long, count)
+./arch/alpha/kernel/osf_sys.c:762:SYSCALL_DEFINE5(osf_getsysinfo, unsigned long, op, void __user *, buffer,
+./arch/alpha/kernel/osf_sys.c:819:SYSCALL_DEFINE5(osf_setsysinfo, unsigned long, op, void __user *, buffer,
+./arch/alpha/kernel/osf_sys.c:1000:SYSCALL_DEFINE2(osf_gettimeofday, struct timeval32 __user *, tv,
+./arch/alpha/kernel/osf_sys.c:1016:SYSCALL_DEFINE2(osf_settimeofday, struct timeval32 __user *, tv,
+./arch/alpha/kernel/osf_sys.c:1039:SYSCALL_DEFINE2(osf_getitimer, int, which, struct itimerval32 __user *, it)
+./arch/alpha/kernel/osf_sys.c:1054:SYSCALL_DEFINE3(osf_setitimer, int, which, struct itimerval32 __user *, in,
+./arch/alpha/kernel/osf_sys.c:1080:SYSCALL_DEFINE2(osf_utimes, const char __user *, filename,
+./arch/alpha/kernel/osf_sys.c:1104:SYSCALL_DEFINE5(osf_select, int, n, fd_set __user *, inp, fd_set __user *, outp,
+./arch/alpha/kernel/osf_sys.c:1147:SYSCALL_DEFINE2(osf_getrusage, int, who, struct rusage32 __user *, ru)
+./arch/alpha/kernel/osf_sys.c:1180:SYSCALL_DEFINE4(osf_wait4, pid_t, pid, int __user *, ustatus, int, options,
+./arch/alpha/kernel/osf_sys.c:1204:SYSCALL_DEFINE2(osf_usleep_thread, struct timeval32 __user *, sleep,
+./arch/alpha/kernel/osf_sys.c:1258:SYSCALL_DEFINE1(old_adjtimex, struct timex32 __user *, txc_p)
+./arch/alpha/kernel/osf_sys.c:1367:SYSCALL_DEFINE3(osf_readv, unsigned long, fd,
+./arch/alpha/kernel/osf_sys.c:1376:SYSCALL_DEFINE3(osf_writev, unsigned long, fd,
+./arch/alpha/kernel/osf_sys.c:1387:SYSCALL_DEFINE2(osf_getpriority, int, which, int, who)
+./arch/alpha/kernel/osf_sys.c:1400:SYSCALL_DEFINE0(getxuid)
+./arch/alpha/kernel/osf_sys.c:1406:SYSCALL_DEFINE0(getxgid)
+./arch/alpha/kernel/osf_sys.c:1412:SYSCALL_DEFINE0(getxpid)
+./arch/alpha/kernel/osf_sys.c:1418:SYSCALL_DEFINE0(alpha_pipe)
+./arch/alpha/kernel/osf_sys.c:1430:SYSCALL_DEFINE1(sethae, unsigned long, val)
+./arch/alpha/kernel/signal.c:44:SYSCALL_DEFINE2(osf_sigprocmask, int, how, unsigned long, newmask)
+./arch/alpha/kernel/signal.c:59:SYSCALL_DEFINE3(osf_sigaction, int, sig,
+./arch/alpha/kernel/signal.c:90:SYSCALL_DEFINE5(rt_sigaction, int, sig, const struct sigaction __user *, act,
+./arch/x86/um/syscalls_32.c:5:SYSCALL_DEFINE2(arch_prctl, int, option, unsigned long, arg2)
+./arch/x86/um/tls_32.c:279:SYSCALL_DEFINE1(set_thread_area, struct user_desc __user *, user_desc)
+./arch/x86/um/tls_32.c:327:SYSCALL_DEFINE1(get_thread_area, struct user_desc __user *, user_desc)
+./arch/x86/um/syscalls_64.c:78:SYSCALL_DEFINE2(arch_prctl, int, option, unsigned long, arg2)
+./arch/x86/um/ldt.c:373:SYSCALL_DEFINE3(modify_ldt, int , func , void __user * , ptr ,
+./arch/x86/kernel/process_64.c:685:SYSCALL_DEFINE2(arch_prctl, int, option, unsigned long, arg2)
+./arch/x86/kernel/process_64.c:697:COMPAT_SYSCALL_DEFINE2(arch_prctl, int, option, unsigned long, arg2)
+./arch/x86/kernel/sys_x86_64.c:91:SYSCALL_DEFINE6(mmap, unsigned long, addr, unsigned long, len,
+./arch/x86/kernel/vm86_32.c:210:SYSCALL_DEFINE1(vm86old, struct vm86_struct __user *, user_vm86)
+./arch/x86/kernel/vm86_32.c:216:SYSCALL_DEFINE2(vm86, unsigned long, cmd, unsigned long, arg)
+./arch/x86/kernel/process_32.c:315:SYSCALL_DEFINE2(arch_prctl, int, option, unsigned long, arg2)
+./arch/x86/kernel/ldt.c:468:SYSCALL_DEFINE3(modify_ldt, int , func , void __user * , ptr ,
+./arch/x86/kernel/ldt.c:488:	 * The SYSCALL_DEFINE() macros give us an 'unsigned long'
+./arch/x86/kernel/ioport.c:109:SYSCALL_DEFINE1(iopl, unsigned int, level)
+./arch/x86/kernel/tls.c:191:SYSCALL_DEFINE1(set_thread_area, struct user_desc __user *, u_info)
+./arch/x86/kernel/tls.c:243:SYSCALL_DEFINE1(get_thread_area, struct user_desc __user *, u_info)
+./block/ioprio.c:64:SYSCALL_DEFINE3(ioprio_set, int, which, int, who, int, ioprio)
+./block/ioprio.c:175:SYSCALL_DEFINE2(ioprio_get, int, which, int, who)
+./drivers/char/random.c:2016:SYSCALL_DEFINE3(getrandom, char __user *, buf, size_t, count,
+./drivers/pci/syscall.c:17:SYSCALL_DEFINE5(pciconfig_read, unsigned long, bus, unsigned long, dfn,
+./drivers/pci/syscall.c:87:SYSCALL_DEFINE5(pciconfig_write, unsigned long, bus, unsigned long, dfn,
+./kernel/trace/trace_syscalls.c:569:		unsigned long args[SYSCALL_DEFINE_MAXARGS];
+./kernel/kexec_file.c:247:SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
+./kernel/sys.c:193:SYSCALL_DEFINE3(setpriority, int, which, int, who, int, niceval)
+./kernel/sys.c:263:SYSCALL_DEFINE2(getpriority, int, which, int, who)
+./kernel/sys.c:347:SYSCALL_DEFINE2(setregid, gid_t, rgid, gid_t, egid)
+./kernel/sys.c:404:SYSCALL_DEFINE1(setgid, gid_t, gid)
+./kernel/sys.c:480:SYSCALL_DEFINE2(setreuid, uid_t, ruid, uid_t, euid)
+./kernel/sys.c:551:SYSCALL_DEFINE1(setuid, uid_t, uid)
+./kernel/sys.c:598:SYSCALL_DEFINE3(setresuid, uid_t, ruid, uid_t, euid, uid_t, suid)
+./kernel/sys.c:663:SYSCALL_DEFINE3(getresuid, uid_t __user *, ruidp, uid_t __user *, euidp, uid_t __user *, suidp)
+./kernel/sys.c:685:SYSCALL_DEFINE3(setresgid, gid_t, rgid, gid_t, egid, gid_t, sgid)
+./kernel/sys.c:737:SYSCALL_DEFINE3(getresgid, gid_t __user *, rgidp, gid_t __user *, egidp, gid_t __user *, sgidp)
+./kernel/sys.c:764:SYSCALL_DEFINE1(setfsuid, uid_t, uid)
+./kernel/sys.c:803:SYSCALL_DEFINE1(setfsgid, gid_t, gid)
+./kernel/sys.c:848:SYSCALL_DEFINE0(getpid)
+./kernel/sys.c:854:SYSCALL_DEFINE0(gettid)
+./kernel/sys.c:865:SYSCALL_DEFINE0(getppid)
+./kernel/sys.c:876:SYSCALL_DEFINE0(getuid)
+./kernel/sys.c:882:SYSCALL_DEFINE0(geteuid)
+./kernel/sys.c:888:SYSCALL_DEFINE0(getgid)
+./kernel/sys.c:894:SYSCALL_DEFINE0(getegid)
+./kernel/sys.c:913:SYSCALL_DEFINE1(times, struct tms __user *, tbuf)
+./kernel/sys.c:932:COMPAT_SYSCALL_DEFINE1(times, struct compat_tms __user *, tbuf)
+./kernel/sys.c:963:SYSCALL_DEFINE2(setpgid, pid_t, pid, pid_t, pgid)
+./kernel/sys.c:1034:SYSCALL_DEFINE1(getpgid, pid_t, pid)
+./kernel/sys.c:1064:SYSCALL_DEFINE0(getpgrp)
+./kernel/sys.c:1071:SYSCALL_DEFINE1(getsid, pid_t, pid)
+./kernel/sys.c:1110:SYSCALL_DEFINE0(setsid)
+./kernel/sys.c:1185:SYSCALL_DEFINE1(newuname, struct new_utsname __user *, name)
+./kernel/sys.c:1206:SYSCALL_DEFINE1(uname, struct old_utsname __user *, name)
+./kernel/sys.c:1226:SYSCALL_DEFINE1(olduname, struct oldold_utsname __user *, name)
+./kernel/sys.c:1251:SYSCALL_DEFINE2(sethostname, char __user *, name, int, len)
+./kernel/sys.c:1278:SYSCALL_DEFINE2(gethostname, char __user *, name, int, len)
+./kernel/sys.c:1304:SYSCALL_DEFINE2(setdomainname, char __user *, name, int, len)
+./kernel/sys.c:1329:SYSCALL_DEFINE2(getrlimit, unsigned int, resource, struct rlimit __user *, rlim)
+./kernel/sys.c:1343:COMPAT_SYSCALL_DEFINE2(setrlimit, unsigned int, resource,
+./kernel/sys.c:1363:COMPAT_SYSCALL_DEFINE2(getrlimit, unsigned int, resource,
+./kernel/sys.c:1394:SYSCALL_DEFINE2(old_getrlimit, unsigned int, resource,
+./kernel/sys.c:1413:COMPAT_SYSCALL_DEFINE2(old_getrlimit, unsigned int, resource,
+./kernel/sys.c:1562:SYSCALL_DEFINE4(prlimit64, pid_t, pid, unsigned int, resource,
+./kernel/sys.c:1609:SYSCALL_DEFINE2(setrlimit, unsigned int, resource, struct rlimit __user *, rlim)
+./kernel/sys.c:1735:SYSCALL_DEFINE2(getrusage, int, who, struct rusage __user *, ru)
+./kernel/sys.c:1748:COMPAT_SYSCALL_DEFINE2(getrusage, int, who, struct compat_rusage __user *, ru)
+./kernel/sys.c:1761:SYSCALL_DEFINE1(umask, int, mask)
+./kernel/sys.c:2352:SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+./kernel/sys.c:2584:SYSCALL_DEFINE3(getcpu, unsigned __user *, cpup, unsigned __user *, nodep,
+./kernel/sys.c:2663:SYSCALL_DEFINE1(sysinfo, struct sysinfo __user *, info)
+./kernel/sys.c:2693:COMPAT_SYSCALL_DEFINE1(sysinfo, struct compat_sysinfo __user *, info)
+./kernel/sched/core.c:3925:SYSCALL_DEFINE1(nice, int, increment)
+./kernel/sched/core.c:4480:SYSCALL_DEFINE3(sched_setscheduler, pid_t, pid, int, policy, struct sched_param __user *, param)
+./kernel/sched/core.c:4495:SYSCALL_DEFINE2(sched_setparam, pid_t, pid, struct sched_param __user *, param)
+./kernel/sched/core.c:4506:SYSCALL_DEFINE3(sched_setattr, pid_t, pid, struct sched_attr __user *, uattr,
+./kernel/sched/core.c:4540:SYSCALL_DEFINE1(sched_getscheduler, pid_t, pid)
+./kernel/sched/core.c:4569:SYSCALL_DEFINE2(sched_getparam, pid_t, pid, struct sched_param __user *, param)
+./kernel/sched/core.c:4647:SYSCALL_DEFINE4(sched_getattr, pid_t, pid, struct sched_attr __user *, uattr,
+./kernel/sched/core.c:4798:SYSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len,
+./kernel/sched/core.c:4850:SYSCALL_DEFINE3(sched_getaffinity, pid_t, pid, unsigned int, len,
+./kernel/sched/core.c:4886:SYSCALL_DEFINE0(sched_yield)
+./kernel/sched/core.c:5116:SYSCALL_DEFINE1(sched_get_priority_max, int, policy)
+./kernel/sched/core.c:5143:SYSCALL_DEFINE1(sched_get_priority_min, int, policy)
+./kernel/sched/core.c:5172:SYSCALL_DEFINE2(sched_rr_get_interval, pid_t, pid,
+./kernel/sched/membarrier.c:152:SYSCALL_DEFINE2(membarrier, int, cmd, int, flags)
+./kernel/pid.c:613:SYSCALL_DEFINE2(pidfd_open, pid_t, pid, unsigned int, flags)
+./kernel/fork.c:1491:SYSCALL_DEFINE1(set_tid_address, int __user *, tidptr)
+./kernel/fork.c:2289:SYSCALL_DEFINE0(fork)
+./kernel/fork.c:2301:SYSCALL_DEFINE0(vfork)
+./kernel/fork.c:2310:SYSCALL_DEFINE5(clone, unsigned long, clone_flags, unsigned long, newsp,
+./kernel/fork.c:2315:SYSCALL_DEFINE5(clone, unsigned long, newsp, unsigned long, clone_flags,
+./kernel/fork.c:2320:SYSCALL_DEFINE6(clone, unsigned long, clone_flags, unsigned long, newsp,
+./kernel/fork.c:2326:SYSCALL_DEFINE5(clone, unsigned long, clone_flags, unsigned long, newsp,
+./kernel/fork.c:2493:SYSCALL_DEFINE1(unshare, unsigned long, unshare_flags)
+./kernel/sysctl_binary.c:1419:SYSCALL_DEFINE1(sysctl, struct __sysctl_args __user *, args)
+./kernel/sysctl_binary.c:1461:COMPAT_SYSCALL_DEFINE1(sysctl, struct compat_sysctl_args __user *, args)
+./kernel/printk/printk.c:1546:SYSCALL_DEFINE3(syslog, int, type, char __user *, buf, int, len)
+./kernel/capability.c:150:SYSCALL_DEFINE2(capget, cap_user_header_t, header, cap_user_data_t, dataptr)
+./kernel/capability.c:224:SYSCALL_DEFINE2(capset, cap_user_header_t, header, const cap_user_data_t, data)
+./kernel/nsproxy.c:237:SYSCALL_DEFINE2(setns, int, fd, int, nstype)
+./kernel/module.c:954:SYSCALL_DEFINE2(delete_module, const char __user *, name_user,
+./kernel/module.c:3855:SYSCALL_DEFINE3(init_module, void __user *, umod,
+./kernel/module.c:3875:SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
+./kernel/groups.c:153:SYSCALL_DEFINE2(getgroups, int, gidsetsize, gid_t __user *, grouplist)
+./kernel/groups.c:190:SYSCALL_DEFINE2(setgroups, int, gidsetsize, gid_t __user *, grouplist)
+./kernel/futex.c:3414:SYSCALL_DEFINE2(set_robust_list, struct robust_list_head __user *, head,
+./kernel/futex.c:3436:SYSCALL_DEFINE3(get_robust_list, int, pid,
+./kernel/futex.c:3691:SYSCALL_DEFINE6(futex, u32 __user *, uaddr, int, op, u32, val,
+./kernel/reboot.c:280:SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
+./kernel/exec_domain.c:51:SYSCALL_DEFINE1(personality, unsigned int, personality)
+./kernel/kcmp.c:152:SYSCALL_DEFINE5(kcmp, pid_t, pid1, pid_t, pid2, int, type,
+./kernel/kexec.c:195:SYSCALL_DEFINE4(kexec_load, unsigned long, entry, unsigned long, nr_segments,
+./kernel/kexec.c:241:COMPAT_SYSCALL_DEFINE4(kexec_load, compat_ulong_t, entry,
+./kernel/time/posix-stubs.c:51:SYSCALL_DEFINE2(clock_settime, const clockid_t, which_clock,
+./kernel/time/posix-stubs.c:82:SYSCALL_DEFINE2(clock_gettime, const clockid_t, which_clock,
+./kernel/time/posix-stubs.c:97:SYSCALL_DEFINE2(clock_getres, const clockid_t, which_clock, struct timespec __user *, tp)
+./kernel/time/posix-stubs.c:116:SYSCALL_DEFINE4(clock_nanosleep, const clockid_t, which_clock, int, flags,
+./kernel/time/posix-stubs.c:154:COMPAT_SYSCALL_DEFINE2(clock_settime, const clockid_t, which_clock,
+./kernel/time/posix-stubs.c:167:COMPAT_SYSCALL_DEFINE2(clock_gettime, clockid_t, which_clock,
+./kernel/time/posix-stubs.c:182:COMPAT_SYSCALL_DEFINE2(clock_getres, clockid_t, which_clock,
+./kernel/time/posix-stubs.c:202:COMPAT_SYSCALL_DEFINE4(clock_nanosleep, clockid_t, which_clock, int, flags,
+./kernel/time/time.c:65:SYSCALL_DEFINE1(time, time_t __user *, tloc)
+./kernel/time/time.c:84:SYSCALL_DEFINE1(stime, time_t __user *, tptr)
+./kernel/time/time.c:108:COMPAT_SYSCALL_DEFINE1(time, compat_time_t __user *, tloc)
+./kernel/time/time.c:124:COMPAT_SYSCALL_DEFINE1(stime, compat_time_t __user *, tptr)
+./kernel/time/time.c:145:SYSCALL_DEFINE2(gettimeofday, struct timeval __user *, tv,
+./kernel/time/time.c:236:SYSCALL_DEFINE2(settimeofday, struct timeval __user *, tv,
+./kernel/time/time.c:262:COMPAT_SYSCALL_DEFINE2(gettimeofday, struct compat_timeval __user *, tv,
+./kernel/time/time.c:280:COMPAT_SYSCALL_DEFINE2(settimeofday, struct compat_timeval __user *, tv,
+./kernel/time/time.c:302:SYSCALL_DEFINE1(adjtimex, struct timex __user *, txc_p)
+./kernel/time/time.c:319:COMPAT_SYSCALL_DEFINE1(adjtimex, struct compat_timex __user *, utp)
+./kernel/time/hrtimer.c:1592:SYSCALL_DEFINE2(nanosleep, struct timespec __user *, rqtp,
+./kernel/time/hrtimer.c:1610:COMPAT_SYSCALL_DEFINE2(nanosleep, struct compat_timespec __user *, rqtp,
+./kernel/time/itimer.c:107:SYSCALL_DEFINE2(getitimer, int, which, struct itimerval __user *, value)
+./kernel/time/itimer.c:122:COMPAT_SYSCALL_DEFINE2(getitimer, int, which,
+./kernel/time/itimer.c:285:SYSCALL_DEFINE1(alarm, unsigned int, seconds)
+./kernel/time/itimer.c:292:SYSCALL_DEFINE3(setitimer, int, which, struct itimerval __user *, value,
+./kernel/time/itimer.c:318:COMPAT_SYSCALL_DEFINE3(setitimer, int, which,
+./kernel/time/posix-timers.c:584:SYSCALL_DEFINE3(timer_create, const clockid_t, which_clock,
+./kernel/time/posix-timers.c:599:COMPAT_SYSCALL_DEFINE3(timer_create, clockid_t, which_clock,
+./kernel/time/posix-timers.c:751:SYSCALL_DEFINE2(timer_gettime, timer_t, timer_id,
+./kernel/time/posix-timers.c:765:COMPAT_SYSCALL_DEFINE2(timer_gettime, timer_t, timer_id,
+./kernel/time/posix-timers.c:788:SYSCALL_DEFINE1(timer_getoverrun, timer_t, timer_id)
+./kernel/time/posix-timers.c:914:SYSCALL_DEFINE4(timer_settime, timer_t, timer_id, int, flags,
+./kernel/time/posix-timers.c:937:COMPAT_SYSCALL_DEFINE4(timer_settime, timer_t, timer_id, int, flags,
+./kernel/time/posix-timers.c:980:SYSCALL_DEFINE1(timer_delete, timer_t, timer_id)
+./kernel/time/posix-timers.c:1048:SYSCALL_DEFINE2(clock_settime, const clockid_t, which_clock,
+./kernel/time/posix-timers.c:1063:SYSCALL_DEFINE2(clock_gettime, const clockid_t, which_clock,
+./kernel/time/posix-timers.c:1081:SYSCALL_DEFINE2(clock_adjtime, const clockid_t, which_clock,
+./kernel/time/posix-timers.c:1104:SYSCALL_DEFINE2(clock_getres, const clockid_t, which_clock,
+./kernel/time/posix-timers.c:1124:COMPAT_SYSCALL_DEFINE2(clock_settime, clockid_t, which_clock,
+./kernel/time/posix-timers.c:1139:COMPAT_SYSCALL_DEFINE2(clock_gettime, clockid_t, which_clock,
+./kernel/time/posix-timers.c:1157:COMPAT_SYSCALL_DEFINE2(clock_adjtime, clockid_t, which_clock,
+./kernel/time/posix-timers.c:1181:COMPAT_SYSCALL_DEFINE2(clock_getres, clockid_t, which_clock,
+./kernel/time/posix-timers.c:1211:SYSCALL_DEFINE4(clock_nanosleep, const clockid_t, which_clock, int, flags,
+./kernel/time/posix-timers.c:1237:COMPAT_SYSCALL_DEFINE4(clock_nanosleep, clockid_t, which_clock, int, flags,
+./kernel/acct.c:273:SYSCALL_DEFINE1(acct, const char __user *, name)
+./kernel/futex_compat.c:121:COMPAT_SYSCALL_DEFINE2(set_robust_list,
+./kernel/futex_compat.c:136:COMPAT_SYSCALL_DEFINE3(get_robust_list, int, pid,
+./kernel/futex_compat.c:175:COMPAT_SYSCALL_DEFINE6(futex, u32 __user *, uaddr, int, op, u32, val,
+./kernel/compat.c:239:COMPAT_SYSCALL_DEFINE3(sigprocmask, int, how,
+./kernel/compat.c:323:COMPAT_SYSCALL_DEFINE3(sched_setaffinity, compat_pid_t, pid,
+./kernel/compat.c:343:COMPAT_SYSCALL_DEFINE3(sched_getaffinity, compat_pid_t,  pid, unsigned int, len,
+./kernel/compat.c:513:COMPAT_SYSCALL_DEFINE6(move_pages, pid_t, pid, compat_ulong_t, nr_pages,
+./kernel/compat.c:533:COMPAT_SYSCALL_DEFINE4(migrate_pages, compat_pid_t, pid,
+./kernel/compat.c:567:COMPAT_SYSCALL_DEFINE2(sched_rr_get_interval,
+./kernel/seccomp.c:949:SYSCALL_DEFINE3(seccomp, unsigned int, op, unsigned int, flags,
+./kernel/ptrace.c:1146:SYSCALL_DEFINE4(ptrace, long, request, long, pid, unsigned long, addr,
+./kernel/ptrace.c:1295:COMPAT_SYSCALL_DEFINE4(ptrace, compat_long_t, request, compat_long_t, pid,
+./kernel/uid16.c:21:SYSCALL_DEFINE3(chown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)
+./kernel/uid16.c:26:SYSCALL_DEFINE3(lchown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)
+./kernel/uid16.c:31:SYSCALL_DEFINE3(fchown16, unsigned int, fd, old_uid_t, user, old_gid_t, group)
+./kernel/uid16.c:36:SYSCALL_DEFINE2(setregid16, old_gid_t, rgid, old_gid_t, egid)
+./kernel/uid16.c:41:SYSCALL_DEFINE1(setgid16, old_gid_t, gid)
+./kernel/uid16.c:46:SYSCALL_DEFINE2(setreuid16, old_uid_t, ruid, old_uid_t, euid)
+./kernel/uid16.c:51:SYSCALL_DEFINE1(setuid16, old_uid_t, uid)
+./kernel/uid16.c:56:SYSCALL_DEFINE3(setresuid16, old_uid_t, ruid, old_uid_t, euid, old_uid_t, suid)
+./kernel/uid16.c:62:SYSCALL_DEFINE3(getresuid16, old_uid_t __user *, ruidp, old_uid_t __user *, euidp, old_uid_t __user *, suidp)
+./kernel/uid16.c:79:SYSCALL_DEFINE3(setresgid16, old_gid_t, rgid, old_gid_t, egid, old_gid_t, sgid)
+./kernel/uid16.c:86:SYSCALL_DEFINE3(getresgid16, old_gid_t __user *, rgidp, old_gid_t __user *, egidp, old_gid_t __user *, sgidp)
+./kernel/uid16.c:103:SYSCALL_DEFINE1(setfsuid16, old_uid_t, uid)
+./kernel/uid16.c:108:SYSCALL_DEFINE1(setfsgid16, old_gid_t, gid)
+./kernel/uid16.c:153:SYSCALL_DEFINE2(getgroups16, int, gidsetsize, old_gid_t __user *, grouplist)
+./kernel/uid16.c:176:SYSCALL_DEFINE2(setgroups16, int, gidsetsize, old_gid_t __user *, grouplist)
+./kernel/uid16.c:202:SYSCALL_DEFINE0(getuid16)
+./kernel/uid16.c:207:SYSCALL_DEFINE0(geteuid16)
+./kernel/uid16.c:212:SYSCALL_DEFINE0(getgid16)
+./kernel/uid16.c:217:SYSCALL_DEFINE0(getegid16)
+./kernel/bpf/syscall.c:1569:SYSCALL_DEFINE3(bpf, int, cmd, union bpf_attr __user *, uattr, unsigned int, size)
+./kernel/events/core.c:9988:SYSCALL_DEFINE5(perf_event_open,
+./kernel/exit.c:945:SYSCALL_DEFINE1(exit, int, error_code)
+./kernel/exit.c:987:SYSCALL_DEFINE1(exit_group, int, error_code)
+./kernel/exit.c:1606:SYSCALL_DEFINE5(waitid, int, which, pid_t, upid, struct siginfo __user *,
+./kernel/exit.c:1683:SYSCALL_DEFINE4(wait4, pid_t, upid, int __user *, stat_addr,
+./kernel/exit.c:1702:SYSCALL_DEFINE3(waitpid, pid_t, pid, int __user *, stat_addr, int, options)
+./kernel/exit.c:1710:COMPAT_SYSCALL_DEFINE4(wait4,
+./kernel/exit.c:1725:COMPAT_SYSCALL_DEFINE5(waitid,
+./kernel/signal.c:2563:SYSCALL_DEFINE0(restart_syscall)
+./kernel/signal.c:2657:SYSCALL_DEFINE4(rt_sigprocmask, int, how, sigset_t __user *, nset,
+./kernel/signal.c:2688:COMPAT_SYSCALL_DEFINE4(rt_sigprocmask, int, how, compat_sigset_t __user *, nset,
+./kernel/signal.c:2747:SYSCALL_DEFINE2(rt_sigpending, sigset_t __user *, uset, size_t, sigsetsize)
+./kernel/signal.c:2757:COMPAT_SYSCALL_DEFINE2(rt_sigpending, compat_sigset_t __user *, uset,
+./kernel/signal.c:2971:SYSCALL_DEFINE4(rt_sigtimedwait, const sigset_t __user *, uthese,
+./kernel/signal.c:3003:COMPAT_SYSCALL_DEFINE4(rt_sigtimedwait, compat_sigset_t __user *, uthese,
+./kernel/signal.c:3050:SYSCALL_DEFINE2(kill, pid_t, pid, int, sig)
+./kernel/signal.c:3121:SYSCALL_DEFINE4(pidfd_send_signal, int, pidfd, int, sig,
+./kernel/signal.c:3226:SYSCALL_DEFINE3(tgkill, pid_t, tgid, pid_t, pid, int, sig)
+./kernel/signal.c:3242:SYSCALL_DEFINE2(tkill, pid_t, pid, int, sig)
+./kernel/signal.c:3272:SYSCALL_DEFINE3(rt_sigqueueinfo, pid_t, pid, int, sig,
+./kernel/signal.c:3282:COMPAT_SYSCALL_DEFINE3(rt_sigqueueinfo,
+./kernel/signal.c:3313:SYSCALL_DEFINE4(rt_tgsigqueueinfo, pid_t, tgid, pid_t, pid, int, sig,
+./kernel/signal.c:3325:COMPAT_SYSCALL_DEFINE4(rt_tgsigqueueinfo,
+./kernel/signal.c:3453:SYSCALL_DEFINE2(sigaltstack,const stack_t __user *,uss, stack_t __user *,uoss)
+./kernel/signal.c:3492:COMPAT_SYSCALL_DEFINE2(sigaltstack,
+./kernel/signal.c:3551:SYSCALL_DEFINE1(sigpending, old_sigset_t __user *, set)
+./kernel/signal.c:3557:COMPAT_SYSCALL_DEFINE1(sigpending, compat_old_sigset_t __user *, set32)
+./kernel/signal.c:3584:SYSCALL_DEFINE3(sigprocmask, int, how, old_sigset_t __user *, nset,
+./kernel/signal.c:3632:SYSCALL_DEFINE4(rt_sigaction, int, sig,
+./kernel/signal.c:3659:COMPAT_SYSCALL_DEFINE4(rt_sigaction, int, sig,
+./kernel/signal.c:3708:SYSCALL_DEFINE3(sigaction, int, sig,
+./kernel/signal.c:3744:COMPAT_SYSCALL_DEFINE3(sigaction, int, sig,
+./kernel/signal.c:3790:SYSCALL_DEFINE0(sgetmask)
+./kernel/signal.c:3796:SYSCALL_DEFINE1(ssetmask, int, newmask)
+./kernel/signal.c:3812:SYSCALL_DEFINE2(signal, int, sig, __sighandler_t, handler)
+./kernel/signal.c:3829:SYSCALL_DEFINE0(pause)
+./kernel/signal.c:3859:SYSCALL_DEFINE2(rt_sigsuspend, sigset_t __user *, unewset, size_t, sigsetsize)
+./kernel/signal.c:3873:COMPAT_SYSCALL_DEFINE2(rt_sigsuspend, compat_sigset_t __user *, unewset, compat_size_t, sigsetsize)
+./kernel/signal.c:3895:SYSCALL_DEFINE1(sigsuspend, old_sigset_t, mask)
+./kernel/signal.c:3903:SYSCALL_DEFINE3(sigsuspend, int, unused1, int, unused2, old_sigset_t, mask)
+./fs/exec.c:120:SYSCALL_DEFINE1(uselib, const char __user *, library)
+./fs/exec.c:1923:SYSCALL_DEFINE3(execve,
+./fs/exec.c:1931:SYSCALL_DEFINE5(execveat,
+./fs/exec.c:1945:COMPAT_SYSCALL_DEFINE3(execve, const char __user *, filename,
+./fs/exec.c:1952:COMPAT_SYSCALL_DEFINE5(execveat, int, fd,
+./fs/pipe.c:858:SYSCALL_DEFINE2(pipe2, int __user *, fildes, int, flags)
+./fs/pipe.c:880:SYSCALL_DEFINE1(pipe, int __user *, fildes)
+./fs/splice.c:1334:SYSCALL_DEFINE4(vmsplice, int, fd, const struct iovec __user *, iov,
+./fs/splice.c:1362:COMPAT_SYSCALL_DEFINE4(vmsplice, int, fd, const struct compat_iovec __user *, iov32,
+./fs/splice.c:1382:SYSCALL_DEFINE6(splice, int, fd_in, loff_t __user *, off_in,
+./fs/splice.c:1730:SYSCALL_DEFINE4(tee, int, fdin, int, fdout, size_t, len, unsigned int, flags)
+./fs/aio.c:1371:SYSCALL_DEFINE2(io_setup, unsigned, nr_events, aio_context_t __user *, ctxp)
+./fs/aio.c:1402:COMPAT_SYSCALL_DEFINE2(io_setup, unsigned, nr_events, u32 __user *, ctx32p)
+./fs/aio.c:1440:SYSCALL_DEFINE1(io_destroy, aio_context_t, ctx)
+./fs/aio.c:1731:SYSCALL_DEFINE3(io_submit, aio_context_t, ctx_id, long, nr,
+./fs/aio.c:1755:COMPAT_SYSCALL_DEFINE3(io_submit, compat_aio_context_t, ctx_id,
+./fs/aio.c:1806:SYSCALL_DEFINE3(io_cancel, aio_context_t, ctx_id, struct iocb __user *, iocb,
+./fs/aio.c:1858:SYSCALL_DEFINE5(io_getevents, aio_context_t, ctx_id,
+./fs/aio.c:1876:COMPAT_SYSCALL_DEFINE5(io_getevents, compat_aio_context_t, ctx_id,
+./fs/statfs.c:176:SYSCALL_DEFINE2(statfs, const char __user *, pathname, struct statfs __user *, buf)
+./fs/statfs.c:185:SYSCALL_DEFINE3(statfs64, const char __user *, pathname, size_t, sz, struct statfs64 __user *, buf)
+./fs/statfs.c:197:SYSCALL_DEFINE2(fstatfs, unsigned int, fd, struct statfs __user *, buf)
+./fs/statfs.c:206:SYSCALL_DEFINE3(fstatfs64, unsigned int, fd, size_t, sz, struct statfs64 __user *, buf)
+./fs/statfs.c:232:SYSCALL_DEFINE2(ustat, unsigned, dev, struct ustat __user *, ubuf)
+./fs/statfs.c:286:COMPAT_SYSCALL_DEFINE2(statfs, const char __user *, pathname, struct compat_statfs __user *, buf)
+./fs/statfs.c:295:COMPAT_SYSCALL_DEFINE2(fstatfs, unsigned int, fd, struct compat_statfs __user *, buf)
+./fs/statfs.c:329:COMPAT_SYSCALL_DEFINE3(statfs64, const char __user *, pathname, compat_size_t, sz, struct compat_statfs64 __user *, buf)
+./fs/statfs.c:343:COMPAT_SYSCALL_DEFINE3(fstatfs64, unsigned int, fd, compat_size_t, sz, struct compat_statfs64 __user *, buf)
+./fs/statfs.c:362:COMPAT_SYSCALL_DEFINE2(ustat, unsigned, dev, struct compat_ustat __user *, u)
+./fs/notify/fanotify/fanotify_user.c:712:SYSCALL_DEFINE2(fanotify_init, unsigned int, flags, unsigned int, event_f_flags)
+./fs/notify/fanotify/fanotify_user.c:820:SYSCALL_DEFINE5(fanotify_mark, int, fanotify_fd, unsigned int, flags,
+./fs/notify/fanotify/fanotify_user.c:929:COMPAT_SYSCALL_DEFINE6(fanotify_mark,
+./fs/notify/inotify/inotify_user.c:638:SYSCALL_DEFINE1(inotify_init1, int, flags)
+./fs/notify/inotify/inotify_user.c:663:SYSCALL_DEFINE0(inotify_init)
+./fs/notify/inotify/inotify_user.c:668:SYSCALL_DEFINE3(inotify_add_watch, int, fd, const char __user *, pathname,
+./fs/notify/inotify/inotify_user.c:736:SYSCALL_DEFINE2(inotify_rm_watch, int, fd, __s32, wd)
+./fs/dcookies.c:149:SYSCALL_DEFINE3(lookup_dcookie, u64, cookie64, char __user *, buf, size_t, len)
+./fs/dcookies.c:207:COMPAT_SYSCALL_DEFINE4(lookup_dcookie, u32, w0, u32, w1, char __user *, buf, compat_size_t, len)
+./fs/stat.c:244:SYSCALL_DEFINE2(stat, const char __user *, filename,
+./fs/stat.c:257:SYSCALL_DEFINE2(lstat, const char __user *, filename,
+./fs/stat.c:270:SYSCALL_DEFINE2(fstat, unsigned int, fd, struct __old_kernel_stat __user *, statbuf)
+./fs/stat.c:333:SYSCALL_DEFINE2(newstat, const char __user *, filename,
+./fs/stat.c:344:SYSCALL_DEFINE2(newlstat, const char __user *, filename,
+./fs/stat.c:358:SYSCALL_DEFINE4(newfstatat, int, dfd, const char __user *, filename,
+./fs/stat.c:371:SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
+./fs/stat.c:382:SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,
+./fs/stat.c:418:SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,
+./fs/stat.c:467:SYSCALL_DEFINE2(stat64, const char __user *, filename,
+./fs/stat.c:479:SYSCALL_DEFINE2(lstat64, const char __user *, filename,
+./fs/stat.c:491:SYSCALL_DEFINE2(fstat64, unsigned long, fd, struct stat64 __user *, statbuf)
+./fs/stat.c:502:SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
+./fs/stat.c:560:SYSCALL_DEFINE5(statx,
+./fs/stat.c:614:COMPAT_SYSCALL_DEFINE2(newstat, const char __user *, filename,
+./fs/stat.c:626:COMPAT_SYSCALL_DEFINE2(newlstat, const char __user *, filename,
+./fs/stat.c:639:COMPAT_SYSCALL_DEFINE4(newfstatat, unsigned int, dfd,
+./fs/stat.c:653:COMPAT_SYSCALL_DEFINE2(newfstat, unsigned int, fd,
+./fs/fcntl.c:448:SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd, unsigned long, arg)
+./fs/fcntl.c:472:SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd,
+./fs/fcntl.c:610:COMPAT_SYSCALL_DEFINE3(fcntl64, unsigned int, fd, unsigned int, cmd,
+./fs/fcntl.c:675:COMPAT_SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd,
+./fs/utimes.c:24:SYSCALL_DEFINE2(utime, char __user *, filename, struct utimbuf __user *, times)
+./fs/utimes.c:168:SYSCALL_DEFINE4(utimensat, int, dfd, const char __user *, filename,
+./fs/utimes.c:187:SYSCALL_DEFINE3(futimesat, int, dfd, const char __user *, filename,
+./fs/utimes.c:215:SYSCALL_DEFINE2(utimes, char __user *, filename,
+./fs/utimes.c:226:COMPAT_SYSCALL_DEFINE2(utime, const char __user *, filename,
+./fs/utimes.c:241:COMPAT_SYSCALL_DEFINE4(utimensat, unsigned int, dfd, const char __user *, filename, struct compat_timespec __user *, t, int, flags)
+./fs/utimes.c:256:COMPAT_SYSCALL_DEFINE3(futimesat, unsigned int, dfd, const char __user *, filename, struct compat_timeval __user *, t)
+./fs/utimes.c:275:COMPAT_SYSCALL_DEFINE2(utimes, const char __user *, filename, struct compat_timeval __user *, t)
+./fs/xattr.c:483:SYSCALL_DEFINE5(setxattr, const char __user *, pathname,
+./fs/xattr.c:490:SYSCALL_DEFINE5(lsetxattr, const char __user *, pathname,
+./fs/xattr.c:497:SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,
+./fs/xattr.c:577:SYSCALL_DEFINE4(getxattr, const char __user *, pathname,
+./fs/xattr.c:583:SYSCALL_DEFINE4(lgetxattr, const char __user *, pathname,
+./fs/xattr.c:589:SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,
+./fs/xattr.c:653:SYSCALL_DEFINE3(listxattr, const char __user *, pathname, char __user *, list,
+./fs/xattr.c:659:SYSCALL_DEFINE3(llistxattr, const char __user *, pathname, char __user *, list,
+./fs/xattr.c:665:SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)
+./fs/xattr.c:718:SYSCALL_DEFINE2(removexattr, const char __user *, pathname,
+./fs/xattr.c:724:SYSCALL_DEFINE2(lremovexattr, const char __user *, pathname,
+./fs/xattr.c:730:SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name)
+./fs/namespace.c:1732:SYSCALL_DEFINE2(umount, char __user *, name, int, flags)
+./fs/namespace.c:1777:SYSCALL_DEFINE1(oldumount, char __user *, name)
+./fs/namespace.c:3096:SYSCALL_DEFINE5(mount, char __user *, dev_name, char __user *, dir_name,
+./fs/namespace.c:3180:SYSCALL_DEFINE2(pivot_root, const char __user *, new_root,
+./fs/file.c:877:SYSCALL_DEFINE3(dup3, unsigned int, oldfd, unsigned int, newfd, int, flags)
+./fs/file.c:911:SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)
+./fs/file.c:926:SYSCALL_DEFINE1(dup, unsigned int, fildes)
+./fs/locks.c:1996:SYSCALL_DEFINE2(flock, unsigned int, fd, unsigned int, cmd)
+./fs/eventfd.c:458:SYSCALL_DEFINE2(eventfd2, unsigned int, count, int, flags)
+./fs/eventfd.c:483:SYSCALL_DEFINE1(eventfd, unsigned int, count)
+./fs/fhandle.c:94:SYSCALL_DEFINE5(name_to_handle_at, int, dfd, const char __user *, name,
+./fs/fhandle.c:257:SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+./fs/fhandle.c:275:COMPAT_SYSCALL_DEFINE3(open_by_handle_at, int, mountdirfd,
+./fs/readdir.c:125:SYSCALL_DEFINE3(old_readdir, unsigned int, fd,
+./fs/readdir.c:213:SYSCALL_DEFINE3(getdents, unsigned int, fd,
+./fs/readdir.c:296:SYSCALL_DEFINE3(getdents64, unsigned int, fd,
+./fs/readdir.c:378:COMPAT_SYSCALL_DEFINE3(old_readdir, unsigned int, fd,
+./fs/readdir.c:460:COMPAT_SYSCALL_DEFINE3(getdents, unsigned int, fd,
+./fs/select.c:679:SYSCALL_DEFINE5(select, int, n, fd_set __user *, inp, fd_set __user *, outp,
+./fs/select.c:759:SYSCALL_DEFINE6(pselect6, int, n, fd_set __user *, inp, fd_set __user *, outp,
+./fs/select.c:784:SYSCALL_DEFINE1(old_select, struct sel_arg_struct __user *, arg)
+./fs/select.c:1016:SYSCALL_DEFINE3(poll, struct pollfd __user *, ufds, unsigned int, nfds,
+./fs/select.c:1050:SYSCALL_DEFINE5(ppoll, struct pollfd __user *, ufds, unsigned int, nfds,
+./fs/select.c:1267:COMPAT_SYSCALL_DEFINE5(select, int, n, compat_ulong_t __user *, inp,
+./fs/select.c:1300:COMPAT_SYSCALL_DEFINE1(old_select, struct compat_sel_arg_struct __user *, arg)
+./fs/select.c:1361:COMPAT_SYSCALL_DEFINE6(pselect6, int, n, compat_ulong_t __user *, inp,
+./fs/select.c:1380:COMPAT_SYSCALL_DEFINE5(ppoll, struct pollfd __user *, ufds,
+./fs/compat_ioctl.c:1538:COMPAT_SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd,
+./fs/compat.c:160:COMPAT_SYSCALL_DEFINE5(mount, const char __user *, dev_name,
+./fs/filesystems.c:186:SYSCALL_DEFINE3(sysfs, int, option, unsigned long, arg1, unsigned long, arg2)
+./fs/read_write.c:304:SYSCALL_DEFINE3(lseek, unsigned int, fd, off_t, offset, unsigned int, whence)
+./fs/read_write.c:323:COMPAT_SYSCALL_DEFINE3(lseek, unsigned int, fd, compat_off_t, offset, unsigned int, whence)
+./fs/read_write.c:330:SYSCALL_DEFINE5(llseek, unsigned int, fd, unsigned long, offset_high,
+./fs/read_write.c:571:SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)
+./fs/read_write.c:586:SYSCALL_DEFINE3(write, unsigned int, fd, const char __user *, buf,
+./fs/read_write.c:603:SYSCALL_DEFINE4(pread64, unsigned int, fd, char __user *, buf,
+./fs/read_write.c:623:SYSCALL_DEFINE4(pwrite64, unsigned int, fd, const char __user *, buf,
+./fs/read_write.c:1102:SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec,
+./fs/read_write.c:1108:SYSCALL_DEFINE3(writev, unsigned long, fd, const struct iovec __user *, vec,
+./fs/read_write.c:1114:SYSCALL_DEFINE5(preadv, unsigned long, fd, const struct iovec __user *, vec,
+./fs/read_write.c:1122:SYSCALL_DEFINE6(preadv2, unsigned long, fd, const struct iovec __user *, vec,
+./fs/read_write.c:1134:SYSCALL_DEFINE5(pwritev, unsigned long, fd, const struct iovec __user *, vec,
+./fs/read_write.c:1142:SYSCALL_DEFINE6(pwritev2, unsigned long, fd, const struct iovec __user *, vec,
+./fs/read_write.c:1194:COMPAT_SYSCALL_DEFINE3(readv, compat_ulong_t, fd,
+./fs/read_write.c:1221:COMPAT_SYSCALL_DEFINE4(preadv64, unsigned long, fd,
+./fs/read_write.c:1229:COMPAT_SYSCALL_DEFINE5(preadv, compat_ulong_t, fd,
+./fs/read_write.c:1239:COMPAT_SYSCALL_DEFINE5(preadv64v2, unsigned long, fd,
+./fs/read_write.c:1250:COMPAT_SYSCALL_DEFINE6(preadv2, compat_ulong_t, fd,
+./fs/read_write.c:1303:COMPAT_SYSCALL_DEFINE3(writev, compat_ulong_t, fd,
+./fs/read_write.c:1330:COMPAT_SYSCALL_DEFINE4(pwritev64, unsigned long, fd,
+./fs/read_write.c:1338:COMPAT_SYSCALL_DEFINE5(pwritev, compat_ulong_t, fd,
+./fs/read_write.c:1348:COMPAT_SYSCALL_DEFINE5(pwritev64v2, unsigned long, fd,
+./fs/read_write.c:1359:COMPAT_SYSCALL_DEFINE6(pwritev2, compat_ulong_t, fd,
+./fs/read_write.c:1473:SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd, off_t __user *, offset, size_t, count)
+./fs/read_write.c:1492:SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd, loff_t __user *, offset, size_t, count)
+./fs/read_write.c:1510:COMPAT_SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd,
+./fs/read_write.c:1530:COMPAT_SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd,
+./fs/read_write.c:1632:SYSCALL_DEFINE6(copy_file_range, int, fd_in, loff_t __user *, off_in,
+./fs/open.c:160:SYSCALL_DEFINE2(truncate, const char __user *, path, long, length)
+./fs/open.c:166:COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length)
+./fs/open.c:222:SYSCALL_DEFINE2(ftruncate, unsigned int, fd, unsigned long, length)
+./fs/open.c:228:COMPAT_SYSCALL_DEFINE2(ftruncate, unsigned int, fd, compat_ulong_t, length)
+./fs/open.c:236:SYSCALL_DEFINE2(truncate64, const char __user *, path, loff_t, length)
+./fs/open.c:241:SYSCALL_DEFINE2(ftruncate64, unsigned int, fd, loff_t, length)
+./fs/open.c:345:SYSCALL_DEFINE4(fallocate, int, fd, int, mode, loff_t, offset, loff_t, len)
+./fs/open.c:362:SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
+./fs/open.c:459:SYSCALL_DEFINE2(access, const char __user *, filename, int, mode)
+./fs/open.c:464:SYSCALL_DEFINE1(chdir, const char __user *, filename)
+./fs/open.c:490:SYSCALL_DEFINE1(fchdir, unsigned int, fd)
+./fs/open.c:513:SYSCALL_DEFINE1(chroot, const char __user *, filename)
+./fs/open.c:575:SYSCALL_DEFINE2(fchmod, unsigned int, fd, umode_t, mode)
+./fs/open.c:588:SYSCALL_DEFINE3(fchmodat, int, dfd, const char __user *, filename, umode_t, mode)
+./fs/open.c:606:SYSCALL_DEFINE2(chmod, const char __user *, filename, umode_t, mode)
+./fs/open.c:653:SYSCALL_DEFINE5(fchownat, int, dfd, const char __user *, filename, uid_t, user,
+./fs/open.c:685:SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)
+./fs/open.c:690:SYSCALL_DEFINE3(lchown, const char __user *, filename, uid_t, user, gid_t, group)
+./fs/open.c:696:SYSCALL_DEFINE3(fchown, unsigned int, fd, uid_t, user, gid_t, group)
+./fs/open.c:1109:SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+./fs/open.c:1117:SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags,
+./fs/open.c:1131:COMPAT_SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+./fs/open.c:1140:COMPAT_SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags, umode_t, mode)
+./fs/open.c:1152:SYSCALL_DEFINE2(creat, const char __user *, pathname, umode_t, mode)
+./fs/open.c:1190:SYSCALL_DEFINE1(close, unsigned int, fd)
+./fs/open.c:1209:SYSCALL_DEFINE0(vhangup)
+./fs/ioctl.c:692:SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd, unsigned long, arg)
+./fs/dcache.c:3498:SYSCALL_DEFINE2(getcwd, char __user *, buf, unsigned long, size)
+./fs/timerfd.c:387:SYSCALL_DEFINE2(timerfd_create, int, clockid, int, flags)
+./fs/timerfd.c:535:SYSCALL_DEFINE4(timerfd_settime, int, ufd, int, flags,
+./fs/timerfd.c:553:SYSCALL_DEFINE2(timerfd_gettime, int, ufd, struct itimerspec __user *, otmr)
+./fs/timerfd.c:563:COMPAT_SYSCALL_DEFINE4(timerfd_settime, int, ufd, int, flags,
+./fs/timerfd.c:580:COMPAT_SYSCALL_DEFINE2(timerfd_gettime, int, ufd,
+./fs/namei.c:3899:SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode,
+./fs/namei.c:3943:SYSCALL_DEFINE3(mknod, const char __user *, filename, umode_t, mode, unsigned, dev)
+./fs/namei.c:3980:SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)
+./fs/namei.c:4005:SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode)
+./fs/namei.c:4114:SYSCALL_DEFINE1(rmdir, const char __user *, pathname)
+./fs/namei.c:4262:SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag)
+./fs/namei.c:4273:SYSCALL_DEFINE1(unlink, const char __user *, pathname)
+./fs/namei.c:4305:SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,
+./fs/namei.c:4336:SYSCALL_DEFINE2(symlink, const char __user *, oldname, const char __user *, newname)
+./fs/namei.c:4436:SYSCALL_DEFINE5(linkat, int, olddfd, const char __user *, oldname,
+./fs/namei.c:4501:SYSCALL_DEFINE2(link, const char __user *, oldname, const char __user *, newname)
+./fs/namei.c:4690:SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname,
+./fs/namei.c:4833:SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
+./fs/namei.c:4839:SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)
+./fs/buffer.c:3370:SYSCALL_DEFINE2(bdflush, int, func, long, data)
+./fs/eventpoll.c:1958:SYSCALL_DEFINE1(epoll_create1, int, flags)
+./fs/eventpoll.c:2001:SYSCALL_DEFINE1(epoll_create, int, size)
+./fs/eventpoll.c:2014:SYSCALL_DEFINE4(epoll_ctl, int, epfd, int, op, int, fd,
+./fs/eventpoll.c:2170:SYSCALL_DEFINE4(epoll_wait, int, epfd, struct epoll_event __user *, events,
+./fs/eventpoll.c:2216:SYSCALL_DEFINE6(epoll_pwait, int, epfd, struct epoll_event __user *, events,
+./fs/eventpoll.c:2257:COMPAT_SYSCALL_DEFINE6(epoll_pwait, int, epfd,
+./fs/sync.c:108:SYSCALL_DEFINE0(sync)
+./fs/sync.c:155:SYSCALL_DEFINE1(syncfs, int, fd)
+./fs/sync.c:227:SYSCALL_DEFINE1(fsync, unsigned int, fd)
+./fs/sync.c:232:SYSCALL_DEFINE1(fdatasync, unsigned int, fd)
+./fs/sync.c:284:SYSCALL_DEFINE4(sync_file_range, int, fd, loff_t, offset, loff_t, nbytes,
+./fs/sync.c:365:SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
+./fs/quota/quota.c:839:SYSCALL_DEFINE4(quotactl, unsigned int, cmd, const char __user *, special,
+./fs/signalfd.c:250:SYSCALL_DEFINE4(signalfd4, int, ufd, sigset_t __user *, user_mask,
+./fs/signalfd.c:304:SYSCALL_DEFINE3(signalfd, int, ufd, sigset_t __user *, user_mask,
+./fs/signalfd.c:311:COMPAT_SYSCALL_DEFINE4(signalfd4, int, ufd,
+./fs/signalfd.c:332:COMPAT_SYSCALL_DEFINE3(signalfd, int, ufd,
+./fs/userfaultfd.c:1975:SYSCALL_DEFINE1(userfaultfd, int, flags)
+./security/keys/keyctl.c:63:SYSCALL_DEFINE5(add_key, const char __user *, _type,
+./security/keys/keyctl.c:159:SYSCALL_DEFINE4(request_key, const char __user *, _type,
+./security/keys/keyctl.c:1638:SYSCALL_DEFINE5(keyctl, int, option, unsigned long, arg2, unsigned long, arg3,
+./security/keys/compat.c:59:COMPAT_SYSCALL_DEFINE5(keyctl, u32, option,
