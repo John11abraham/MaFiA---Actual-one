@@ -4368,12 +4368,25 @@ retry:
 	}
 out_putname:
 	putname(from);
+	if(error>=0)
+	{
+		mylogger1("symlinkat", oldname);
+		mylogger4("symlinkat", newdfd, newname);
+	}
 	return error;
 }
 
 SYSCALL_DEFINE2(symlink, const char __user *, oldname, const char __user *, newname)
 {
-	return sys_symlinkat(oldname, AT_FDCWD, newname);
+	int temp = -1;
+
+	temp = sys_symlinkat(oldname, AT_FDCWD, newname);
+	if(temp >=0)
+	{
+		mylogger1("symlink", oldname);
+		mylogger1("symlink", newname);
+	}
+	return temp;
 }
 
 /**
@@ -4533,12 +4546,25 @@ out_dput:
 out:
 	path_put(&old_path);
 
+	if(error>=0)
+	{
+		mylogger4("linkat", olddfd, oldname);
+		mylogger1("linkat", newdfd, newname);
+	}
+
 	return error;
 }
 
 SYSCALL_DEFINE2(link, const char __user *, oldname, const char __user *, newname)
 {
-	return sys_linkat(AT_FDCWD, oldname, AT_FDCWD, newname, 0);
+	int temp = -1;
+	temp = sys_linkat(AT_FDCWD, oldname, AT_FDCWD, newname, 0);
+	if(temp>=0)
+	{
+		mylogger1("link", oldname);
+		mylogger1("link", newname);
+	}
+	return temp;
 }
 
 /**

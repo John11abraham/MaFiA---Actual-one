@@ -20,12 +20,24 @@
 
 SYSCALL_DEFINE3(chown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)
 {
-	return sys_chown(filename, low2highuid(user), low2highgid(group));
+	int temp = -1;
+	temp = sys_chown(filename, low2highuid(user), low2highgid(group));
+	if(temp>=0)
+	{
+		mylogger1("chown16", filename);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE3(lchown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)
 {
-	return sys_lchown(filename, low2highuid(user), low2highgid(group));
+	int temp = -1;
+	temp = sys_lchown(filename, low2highuid(user), low2highgid(group));
+	if(temp>=0)
+	{
+		mylogger1("chown16", filename);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE3(fchown16, unsigned int, fd, old_uid_t, user, old_gid_t, group)

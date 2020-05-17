@@ -737,7 +737,13 @@ out:
 
 SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)
 {
-	return sys_fchownat(AT_FDCWD, filename, user, group, 0);
+	int temp = =1;
+	temp = sys_fchownat(AT_FDCWD, filename, user, group, 0);
+	if(temp>=0)
+	{
+		mylogger1("chown", filename);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE3(lchown, const char __user *, filename, uid_t, user, gid_t, group)

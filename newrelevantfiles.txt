@@ -30,8 +30,8 @@
 ./fs/file.c:911:SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)                   //              
 ./fs/namei.c:3980:SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)      //          
 ./fs/namei.c:4005:SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode) //
-./mm/readahead.c:584:SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)                              ------readahead is not actually file access right? // it is
-./fs/stat.c:382:SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,                              --- check the service function and use that fd 
+./mm/readahead.c:584:SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)     //                         
+./fs/stat.c:382:SYSCALL_DEFINE4(readlinkat, int, dfd, const char __user *, pathname,     //                         
 ./fs/stat.c:418:SYSCALL_DEFINE3(readlink, const char __user *, path, char __user *, buf,                                  
 ./fs/read_write.c:571:SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)     //                
 ./fs/read_write.c:1102:SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec,  //
@@ -91,21 +91,21 @@
 ./fs/open.c:588:SYSCALL_DEFINE3(fchmodat, int, dfd, const char __user *, filename, umode_t, mode) //
 ./fs/namei.c:4690:SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname, //
 ./fs/namei.c:4833:SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname, //
-./fs/xattr.c:497:SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,                     ----
-./fs/xattr.c:589:SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,						---
-./fs/xattr.c:665:SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)			---Ask andre about these 3
-./fs/xattr.c:730:SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name) -----
-./fs/namei.c:4436:SYSCALL_DEFINE5(linkat, int, olddfd, const char __user *, oldname,  ----
-./fs/namei.c:4501:SYSCALL_DEFINE2(link, const char __user *, oldname, const char __user *, newname)    --- all these links
+./fs/xattr.c:497:SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,      //               //
+./fs/xattr.c:589:SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,						//
+./fs/xattr.c:665:SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)			//Ask andre about these 3 - yes
+./fs/xattr.c:730:SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name) //
+./fs/namei.c:4436:SYSCALL_DEFINE5(linkat, int, olddfd, const char __user *, oldname,  //
+./fs/namei.c:4501:SYSCALL_DEFINE2(link, const char __user *, oldname, const char __user *, newname)    //
 ./fs/namei.c:4262:SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag) //
 ./fs/namei.c:4273:SYSCALL_DEFINE1(unlink, const char __user *, pathname)    //
 ./fs/namei.c:4262:SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag) //
 ./fs/namei.c:3899:SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode, //
 ./fs/namei.c:3943:SYSCALL_DEFINE3(mknod, const char __user *, filename, umode_t, mode, unsigned, dev) //
 ./fs/open.c:606:SYSCALL_DEFINE2(chmod, const char __user *, filename, umode_t, mode) //
-./kernel/uid16.c:21:SYSCALL_DEFINE3(chown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)   ----
-./fs/open.c:685:SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)                     ----
-./kernel/uid16.c:26:SYSCALL_DEFINE3(lchown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)   ----- assuming we do not have to care about these
+./kernel/uid16.c:21:SYSCALL_DEFINE3(chown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)   -//
+./fs/open.c:685:SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)        //              
+./kernel/uid16.c:26:SYSCALL_DEFINE3(lchown16, const char __user *, filename, old_uid_t, user, old_gid_t, group)   // 
 ./fs/open.c:690:SYSCALL_DEFINE3(lchown, const char __user *, filename, uid_t, user, gid_t, group) --
 ./fs/namei.c:3980:SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode) //
 ./fs/namei.c:4005:SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode) //
@@ -115,20 +115,20 @@
 ./fs/namei.c:4690:SYSCALL_DEFINE5(renameat2, int, olddfd, const char __user *, oldname, //
 ./fs/namei.c:4833:SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname, //
 ./fs/namei.c:4839:SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)  //
-./fs/namei.c:4305:SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,                                           -------------
-./fs/namei.c:4336:SYSCALL_DEFINE2(symlink, const char __user *, oldname, const char __user *, newname)              ---------------Ask andre
+./fs/namei.c:4305:SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,                                  //         
+./fs/namei.c:4336:SYSCALL_DEFINE2(symlink, const char __user *, oldname, const char __user *, newname)    //           
 ./arch/tile/kernel/compat.c:42:COMPAT_SYSCALL_DEFINE4(truncate64, char __user *, filename, u32, dummy,    //
 ./fs/open.c:160:SYSCALL_DEFINE2(truncate, const char __user *, path, long, length) //
 ./fs/open.c:166:COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length) //
 ./fs/open.c:236:SYSCALL_DEFINE2(truncate64, const char __user *, path, loff_t, length) //
-./fs/xattr.c:483:SYSCALL_DEFINE5(setxattr, const char __user *, pathname,
-./fs/xattr.c:490:SYSCALL_DEFINE5(lsetxattr, const char __user *, pathname,
-./fs/xattr.c:577:SYSCALL_DEFINE4(getxattr, const char __user *, pathname,
-./fs/xattr.c:583:SYSCALL_DEFINE4(lgetxattr, const char __user *, pathname,
-./fs/xattr.c:653:SYSCALL_DEFINE3(listxattr, const char __user *, pathname, char __user *, list,
-./fs/xattr.c:659:SYSCALL_DEFINE3(llistxattr, const char __user *, pathname, char __user *, list,               ----- ALL THESE ATTR ONES
-./fs/xattr.c:718:SYSCALL_DEFINE2(removexattr, const char __user *, pathname,
-./fs/xattr.c:724:SYSCALL_DEFINE2(lremovexattr, const char __user *, pathname,
+./fs/xattr.c:483:SYSCALL_DEFINE5(setxattr, const char __user *, pathname, //
+./fs/xattr.c:490:SYSCALL_DEFINE5(lsetxattr, const char __user *, pathname, //
+./fs/xattr.c:577:SYSCALL_DEFINE4(getxattr, const char __user *, pathname, //
+./fs/xattr.c:583:SYSCALL_DEFINE4(lgetxattr, const char __user *, pathname, //
+./fs/xattr.c:653:SYSCALL_DEFINE3(listxattr, const char __user *, pathname, char __user *, list, //
+./fs/xattr.c:659:SYSCALL_DEFINE3(llistxattr, const char __user *, pathname, char __user *, list,  //             ----- ALL THESE ATTR ONES
+./fs/xattr.c:718:SYSCALL_DEFINE2(removexattr, const char __user *, pathname, //
+./fs/xattr.c:724:SYSCALL_DEFINE2(lremovexattr, const char __user *, pathname, //
 ./net/socket.c:1325:SYSCALL_DEFINE3(socket, int, family, int, type, int, protocol)  //
 ./net/socket.c:1366:SYSCALL_DEFINE4(socketpair, int, family, int, type, int, protocol, //
 ./net/socket.c:2439:SYSCALL_DEFINE2(socketcall, int, call, unsigned long __user *, args)   ---

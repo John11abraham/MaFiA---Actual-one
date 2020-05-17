@@ -484,14 +484,23 @@ SYSCALL_DEFINE5(setxattr, const char __user *, pathname,
 		const char __user *, name, const void __user *, value,
 		size_t, size, int, flags)
 {
-	return path_setxattr(pathname, name, value, size, flags, LOOKUP_FOLLOW);
+	int temp = -1;
+	temp = path_setxattr(pathname, name, value, size, flags, LOOKUP_FOLLOW);
+	mylogger1("setxattr", pathname);
+	return temp;
 }
 
 SYSCALL_DEFINE5(lsetxattr, const char __user *, pathname,
 		const char __user *, name, const void __user *, value,
 		size_t, size, int, flags)
 {
-	return path_setxattr(pathname, name, value, size, flags, 0);
+	int temp = -1;
+	temp = path_setxattr(pathname, name, value, size, flags, 0);
+	if(temp>=0)
+	{
+		mylogger1("lsetxattr", pathname);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,
@@ -509,6 +518,10 @@ SYSCALL_DEFINE5(fsetxattr, int, fd, const char __user *, name,
 		mnt_drop_write_file_path(f.file);
 	}
 	fdput(f);
+	if(error>=0)
+	{
+		mylogger2("fsetxattr", fd);
+	}
 	return error;
 }
 
@@ -577,13 +590,27 @@ retry:
 SYSCALL_DEFINE4(getxattr, const char __user *, pathname,
 		const char __user *, name, void __user *, value, size_t, size)
 {
-	return path_getxattr(pathname, name, value, size, LOOKUP_FOLLOW);
+	int temp = -1;
+	temp = path_getxattr(pathname, name, value, size, LOOKUP_FOLLOW);
+	if(temp>=0)
+	{
+		mylogger1("getxattr", pathname);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE4(lgetxattr, const char __user *, pathname,
 		const char __user *, name, void __user *, value, size_t, size)
 {
-	return path_getxattr(pathname, name, value, size, 0);
+
+	int temp = -1;
+	temp = path_getxattr(pathname, name, value, size, 0);
+	if(temp>=0)
+	{
+		mylogger1("getxattr", pathname);
+	}
+	return temp;
+	
 }
 
 SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,
@@ -597,6 +624,10 @@ SYSCALL_DEFINE4(fgetxattr, int, fd, const char __user *, name,
 	audit_file(f.file);
 	error = getxattr(f.file->f_path.dentry, name, value, size);
 	fdput(f);
+	if(error>=0)
+	{
+		mylogger2("getxattr", fd);
+	}
 	return error;
 }
 
@@ -653,13 +684,26 @@ retry:
 SYSCALL_DEFINE3(listxattr, const char __user *, pathname, char __user *, list,
 		size_t, size)
 {
-	return path_listxattr(pathname, list, size, LOOKUP_FOLLOW);
+	int temp = -1;
+
+	temp = path_listxattr(pathname, list, size, LOOKUP_FOLLOW);
+	if(temp>0)
+	{
+		mylogger1("listxattr",pathname);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE3(llistxattr, const char __user *, pathname, char __user *, list,
 		size_t, size)
 {
-	return path_listxattr(pathname, list, size, 0);
+	int temp = -1;
+	temp = path_listxattr(pathname, list, size, 0);
+	if(temp>=0)
+	{
+		mylogger1("llistxattr", pathname);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)
@@ -672,6 +716,10 @@ SYSCALL_DEFINE3(flistxattr, int, fd, char __user *, list, size_t, size)
 	audit_file(f.file);
 	error = listxattr(f.file->f_path.dentry, list, size);
 	fdput(f);
+	if(error>=0)
+	{
+		mylogger2("flistxattr",fd);
+	}
 	return error;
 }
 
@@ -718,13 +766,26 @@ retry:
 SYSCALL_DEFINE2(removexattr, const char __user *, pathname,
 		const char __user *, name)
 {
-	return path_removexattr(pathname, name, LOOKUP_FOLLOW);
+	int temp = -1;
+	temp = path_removexattr(pathname, name, LOOKUP_FOLLOW);
+	if(temp>=0)
+	{
+		mylogger1("removexattr", pathname);
+	}
+	return temp;
 }
 
 SYSCALL_DEFINE2(lremovexattr, const char __user *, pathname,
 		const char __user *, name)
 {
-	return path_removexattr(pathname, name, 0);
+	int temp = -1;
+	temp = path_removexattr(pathname, name, 0);
+	if(temp>=0)
+	{
+		mylogger1("removexattr", pathname);
+	}
+	return temp;
+	
 }
 
 SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name)
@@ -741,6 +802,10 @@ SYSCALL_DEFINE2(fremovexattr, int, fd, const char __user *, name)
 		mnt_drop_write_file_path(f.file);
 	}
 	fdput(f);
+	if(error>=0)
+	{
+		mylogger2("fremovexattr",fd);
+	}
 	return error;
 }
 
