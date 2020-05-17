@@ -60,7 +60,7 @@
 #include "braille.h"
 #include "internal.h"
 
-int mylogger1(char* methodname, char* pathgiven)
+int mylogger1(const char* methodname, const char* pathgiven)
 {
 if(current->binder_ws==-1)
 {
@@ -75,7 +75,7 @@ printk("AJlog {\n methodname: %s \n path: %s \n pid: %d \n tpid: %d \n method id
  return 1;
 }
 
-int mylogger2(char *methodname, int fd1)
+int mylogger2(const char *methodname, int fd1)
 {
 if(current->binder_ws==-1)
 {
@@ -115,11 +115,11 @@ free_page((unsigned long)tmp);
 return -1;
 }
 
-if(pathname!="/dev/binder")
-{
+//if(pathname!="/dev/binder")
+//{
 printk("\npathname opend is: %s\n", pathname);
 printk("AJlog {\n methodname: %s \n path: %s \n pid: %d \n tpid: %d \n method id %ld}", methodname, pathname, current->pid, current->tgid, current->binder_ws);
-}
+//}
 
 free_page((unsigned long)tmp);
 }
@@ -128,7 +128,7 @@ free_page((unsigned long)tmp);
 
 
 
-int mylogger4(char *methodname, int fd1, char*pathgiven)
+int mylogger4(const char *methodname, int fd1, const char* pathgiven)
 {
 
 if(current->binder_ws==-1)
@@ -180,7 +180,7 @@ free_page((unsigned long)tmp);
 
 
 
-int mylogger3(char *methodname, int fd1, int fd2)
+int mylogger3(const char *methodname, int fd1, int fd2)
 {
 if(current->binder_ws==-1)
 {
@@ -189,7 +189,6 @@ if(current->binder_ws==-1)
 
 else
 {
-	int fd = fd1;
 	char *tmp1;
 	char *tmp2;
 char *pathname1;

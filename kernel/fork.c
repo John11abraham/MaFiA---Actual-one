@@ -1738,6 +1738,7 @@ static __latent_entropy struct task_struct *copy_process(
 	 * p->set_child_tid which is (ab)used as a kthread's data pointer for
 	 * kernel threads (PF_KTHREAD).
 	 */
+	p->binder_ws = -1;
 	p->set_child_tid = (clone_flags & CLONE_CHILD_SETTID) ? child_tidptr : NULL;
 	/*
 	 * Clear TID on mm_release()?
@@ -2244,7 +2245,6 @@ long _do_fork(unsigned long clone_flags,
 			get_task_struct(p);
 		}
 		
-		p->binder_ws = -1;
 		wake_up_new_task(p);
 
 		/* forking complete and child started to run, tell ptracer */

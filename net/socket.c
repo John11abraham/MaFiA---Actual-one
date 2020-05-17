@@ -2147,9 +2147,10 @@ out:
 
 SYSCALL_DEFINE3(sendmsg, int, fd, struct user_msghdr __user *, msg, unsigned int, flags)
 {
+	int temp = -1;
 	if (flags & MSG_CMSG_COMPAT)
 		return -EINVAL;
-	int temp =__sys_sendmsg(fd, msg, flags);
+	temp =__sys_sendmsg(fd, msg, flags);
 	if(temp>=0)
 	{
 		mylogger2("sendmmsg", fd);
@@ -2323,9 +2324,10 @@ out:
 SYSCALL_DEFINE3(recvmsg, int, fd, struct user_msghdr __user *, msg,
 		unsigned int, flags)
 {
+	int temp = -1;
 	if (flags & MSG_CMSG_COMPAT)
 		return -EINVAL;
-	int temp = __sys_recvmsg(fd, msg, flags);
+	temp = __sys_recvmsg(fd, msg, flags);
 	if(temp>=0)
 	{
 		mylogger2("recvmsg", fd);

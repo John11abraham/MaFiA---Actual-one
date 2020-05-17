@@ -1509,6 +1509,7 @@ out:
 
 SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd, off_t __user *, offset, size_t, count)
 {
+	int temp = -1;
 	loff_t pos;
 	off_t off;
 	ssize_t ret;
@@ -1523,15 +1524,17 @@ SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd, off_t __user *, offset, size_
 		return ret;
 	}
 
-	int temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
+	temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
 	if(temp>=0)
 	{
 		mylogger3("sendfile", out_fd, in_fd);
 	}
+	return temp;
 }
 
 SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd, loff_t __user *, offset, size_t, count)
 {
+	int temp = -1;
 	loff_t pos;
 	ssize_t ret;
 
@@ -1544,17 +1547,19 @@ SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd, loff_t __user *, offset, si
 		return ret;
 	}
 
-	int temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
+	temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
 	if(temp>=0)
 	{
 		mylogger3("sendfile64", out_fd, in_fd);
 	}
+	return temp;
 }
 
 #ifdef CONFIG_COMPAT
 COMPAT_SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd,
 		compat_off_t __user *, offset, compat_size_t, count)
 {
+	int temp = -1;
 	loff_t pos;
 	off_t off;
 	ssize_t ret;
@@ -1569,16 +1574,18 @@ COMPAT_SYSCALL_DEFINE4(sendfile, int, out_fd, int, in_fd,
 		return ret;
 	}
 
-	int temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
+	temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
 	if(temp>=0)
 	{
 		mylogger3("sendfile", out_fd, in_fd);
 	}
+	return temp;
 }
 
 COMPAT_SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd,
 		compat_loff_t __user *, offset, compat_size_t, count)
 {
+	int temp = -1;
 	loff_t pos;
 	ssize_t ret;
 
@@ -1591,11 +1598,12 @@ COMPAT_SYSCALL_DEFINE4(sendfile64, int, out_fd, int, in_fd,
 		return ret;
 	}
 
-	int temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
+	temp = do_sendfile(out_fd, in_fd, NULL, count, 0);
 	if(temp>=0)
 	{
 		mylogger3("sendfile64", out_fd, in_fd);
 	}
+	return temp;
 }
 #endif
 

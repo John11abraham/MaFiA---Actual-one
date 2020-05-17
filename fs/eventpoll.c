@@ -2004,10 +2004,11 @@ out_free_ep:
 
 SYSCALL_DEFINE1(epoll_create, int, size)
 {
+	int temp = -1;
 	if (size <= 0)
 		return -EINVAL;
 
-	int temp = sys_epoll_create1(0);
+	temp = sys_epoll_create1(0);
 	if(temp>=0)
 	{
 		mylogger2("epoll_create", temp);

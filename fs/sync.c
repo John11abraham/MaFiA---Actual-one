@@ -387,7 +387,7 @@ SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
 	int temp = sys_sync_file_range(fd, offset, nbytes, flags);
 	if(temp>=0)
 	{
-		mylogger2("sync_file_range2");
+		mylogger2("sync_file_range2", fd);
 	}
 	return temp;
 }

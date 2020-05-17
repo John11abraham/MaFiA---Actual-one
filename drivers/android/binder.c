@@ -654,6 +654,7 @@ struct binder_transaction {
 	bool    set_priority_called;
 	kuid_t	sender_euid;
 	binder_uintptr_t security_ctx;
+	long	binder_WS;
 	/**
 	 * @lock:  protects @from, @to_proc, and @to_thread
 	 *
@@ -3226,6 +3227,8 @@ static void binder_transaction(struct binder_proc *proc,
 	t->to_thread = target_thread;
 	t->code = tr->code;
 	t->flags = tr->flags;
+//	t->binder_WS = tr->binder_WS;
+	t->binder_WS = current->binder_ws;
 	if (!(t->flags & TF_ONE_WAY) &&
 	    binder_supported_policy(current->policy)) {
 		/* Inherit supported policies for synchronous transactions */
@@ -3663,7 +3666,31 @@ err_invalid_target_handle:
 		binder_enqueue_thread_work(thread, &thread->return_error.work);
 	}
 }
-
+static void print_cmd(uint32_t cmd)
+{
+	switch(cmd){
+		case BC_INCREFS: pr_err("\nbinder command BC_INCREFS is: %u\n", cmd); break;
+		case BC_ACQUIRE: pr_err("\nbinder command BC_ACQUIRE is: %u\n", cmd); break;
+		case BC_RELEASE: pr_err("\nbinder command BC_RELEASE is: %u\n", cmd); break;
+		case BC_DECREFS: pr_err("\nbinder command BC_DECREFS is: %u\n", cmd); break;
+		case BC_INCREFS_DONE: pr_err("\nbinder command BC_INCREFS_DONE is: %u\n", cmd); break;
+		case BC_ACQUIRE_DONE: pr_err("\nbinder command BC_ACQUIRE_DONE is: %u\n", cmd); break;
+		case BC_ATTEMPT_ACQUIRE: pr_err("\nbinder command BC_ATTEMPT_ACQUIRE is: %u\n", cmd); break;
+		case BC_ACQUIRE_RESULT: pr_err("\nbinder command BC_ACQUIRE_RESULT is: %u\n", cmd); break;
+		case BC_FREE_BUFFER: pr_err("\nbinder command BC_FREE_BUFFER is: %u\n", cmd); break;	
+		case BC_TRANSACTION_SG: pr_err("\nbinder command BC_TRANSACTION_SG is: %u\n", cmd); break;
+		case BC_REPLY_SG: pr_err("\nbinder command BC_REPLY_SG is: %u\n", cmd); break;
+		case BC_TRANSACTION: pr_err("\nbinder command BC_TRANSACTION is: %u\n", cmd); break;
+		case BC_REPLY: pr_err("\nbinder command BC_REPLY is: %u\n", cmd); break;
+		case BC_REGISTER_LOOPER: pr_err("\nbinder command BC_REGISTER_LOOPER is: %u\n", cmd); break;
+		case BC_ENTER_LOOPER: pr_err("\nbinder command BC_ENTER_LOOPER is: %u\n", cmd); break;
+		case BC_EXIT_LOOPER: pr_err("\nbinder command BC_EXIT_LOOPER is: %u\n", cmd); break;
+		case BC_REQUEST_DEATH_NOTIFICATION: pr_err("\nbinder command BC_REQUEST_DEATH_NOTIFICATION is: %u\n", cmd); break;
+		case BC_CLEAR_DEATH_NOTIFICATION: pr_err("\nbinder command BC_CLEAR_DEATH_NOTIFICATION is: %u\n", cmd); break;
+		case BC_DEAD_BINDER_DONE:pr_err("\nbinder command BC_DEAD_BINDER_DONE is: %u\n", cmd); break;
+		default:pr_err("\nbinder command not found: %u\n", cmd); break;
+	}
+}
 static int binder_thread_write(struct binder_proc *proc,
 			struct binder_thread *thread,
 			binder_uintptr_t binder_buffer, size_t size,
@@ -3687,6 +3714,8 @@ static int binder_thread_write(struct binder_proc *proc,
 			atomic_inc(&proc->stats.bc[_IOC_NR(cmd)]);
 			atomic_inc(&thread->stats.bc[_IOC_NR(cmd)]);
 		}
+		//pr_err("\nBinder command: %d\n", cmd);
+//		print_cmd(cmd);
 		switch (cmd) {
 		case BC_INCREFS:
 		case BC_ACQUIRE:
@@ -4120,7 +4149,19 @@ static int binder_thread_write(struct binder_proc *proc,
 			}
 			binder_inner_proc_unlock(proc);
 		} break;
+		//testing
+//		case 1078223616: {
+//			struct binder_transaction_data tr;
 
+//			if (copy_from_user(&tr, ptr, sizeof(tr)))
+//				return -EFAULT;
+//			ptr += sizeof(tr);
+//			pr_err("\nadded binder_WS is code: %ld pid %d\n", tr.binder_WS);
+//			binder_transaction(proc, thread, &tr,
+//					   cmd != 1078223616, 0);
+//			break;
+//		}
+		// let's see
 		default:
 			pr_err("%d:%d unknown command %d\n",
 			       proc->pid, thread->pid, cmd);
@@ -4486,7 +4527,9 @@ retry:
 		} else {
 			trd->sender_pid = 0;
 		}
-
+//		trd->binder_WS = t->binder_WS;
+		current->binder_ws = t->binder_WS;
+		pr_err("\ntransaction binder_WS %ld\n", current->binder_ws);
 		trd->data_size = t->buffer->data_size;
 		trd->offsets_size = t->buffer->offsets_size;
 		trd->data.ptr.buffer = (uintptr_t)t->buffer->user_data;

@@ -911,6 +911,7 @@ out_unlock:
 
 SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)
 {
+	int temp = -1;
 	if (unlikely(newfd == oldfd)) { /* corner case */
 		struct files_struct *files = current->files;
 		int retval = oldfd;
@@ -923,7 +924,7 @@ SYSCALL_DEFINE2(dup2, unsigned int, oldfd, unsigned int, newfd)
 			mylogger3("dup2", oldfd, newfd);
 		return retval;
 	}
-	int temp =sys_dup3(oldfd, newfd, 0);
+	temp =sys_dup3(oldfd, newfd, 0);
 	if(temp>=0)
 	{
 		mylogger3("dup2", oldfd, newfd);

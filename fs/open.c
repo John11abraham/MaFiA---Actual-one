@@ -1165,9 +1165,10 @@ long do_sys_open(int dfd, const char __user *filename, int flags, umode_t mode)
 
 SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
 {
+	int temp = -1;
 	if (force_o_largefile())
 		flags |= O_LARGEFILE;
-	int temp = do_sys_open(AT_FDCWD, filename, flags, mode);
+	temp = do_sys_open(AT_FDCWD, filename, flags, mode);
 	if (temp>=0)
 	{
 		mylogger2("open", temp);
@@ -1178,9 +1179,10 @@ SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
 SYSCALL_DEFINE4(openat, int, dfd, const char __user *, filename, int, flags,
 		umode_t, mode)
 {
+	int temp = -1;
 	if (force_o_largefile())
 		flags |= O_LARGEFILE;
-	int temp = do_sys_open(dfd, filename, flags, mode);
+	temp = do_sys_open(dfd, filename, flags, mode);
 	if (temp>=0)
 	{
 		mylogger2("openat", temp);

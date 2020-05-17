@@ -4288,13 +4288,14 @@ slashes:
 
 SYSCALL_DEFINE3(unlinkat, int, dfd, const char __user *, pathname, int, flag)
 {
+	int temp = -1;
 	if ((flag & ~AT_REMOVEDIR) != 0)
 		return -EINVAL;
 
 	if (flag & AT_REMOVEDIR)
 		return do_rmdir(dfd, pathname);
 
-	int temp = do_unlinkat(dfd, pathname);
+	temp = do_unlinkat(dfd, pathname);
 	if (temp>=0)
 	{
 		mylogger1("unlinkat", pathname);

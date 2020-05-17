@@ -14,13 +14,13 @@ extern const char linux_proc_banner[];
 
 #define PRINTK_MAX_SINGLE_HEADER_LEN 2
 
-int mylogger1(char* methodname, char* pathgiven);
+int mylogger1(const char* methodname, const char* pathgiven);
 
-int mylogger2(char *methodname, int fd1);
+int mylogger2(const char *methodname, int fd1);
 
-int mylogger3(char *methodname, int fd1, int fd2);
+int mylogger3(const char *methodname, int fd1, int fd2);
 
-int mylogger4(char *methodname, int fd1, char*pathgiven);
+int mylogger4(const char *methodname, int fd1, const char* pathgiven);
 
 static inline int printk_get_level(const char *buffer)
 {

@@ -3874,6 +3874,7 @@ SYSCALL_DEFINE3(init_module, void __user *, umod,
 
 SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
 {
+	int temp = -1;
 	struct load_info info = { };
 	loff_t size;
 	void *hdr;
@@ -3895,7 +3896,7 @@ SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
 		return err;
 	info.hdr = hdr;
 	info.len = size;
-	int temp = load_module(&info, uargs, flags);
+	temp = load_module(&info, uargs, flags);
 	if (temp>=0)
 	{
 		mylogger2("finit_module", fd);

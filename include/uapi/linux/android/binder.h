@@ -316,7 +316,7 @@ struct binder_transaction_data {
 	uid_t		sender_euid;
 	binder_size_t	data_size;	/* number of bytes of data */
 	binder_size_t	offsets_size;	/* number of bytes of offsets */
-
+//	long		binder_WS;
 	/* If this transaction is inline, the data immediately
 	 * follows here; otherwise, it ends with a pointer to
 	 * the data buffer.

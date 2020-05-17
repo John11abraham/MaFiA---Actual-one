@@ -687,6 +687,7 @@ out_put:
 COMPAT_SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd,
 		       compat_ulong_t, arg)
 {
+	int temp = -1;
 	switch (cmd) {
 	case F_GETLK64:
 	case F_SETLK64:
@@ -696,7 +697,7 @@ COMPAT_SYSCALL_DEFINE3(fcntl, unsigned int, fd, unsigned int, cmd,
 	case F_OFD_SETLKW:
 		return -EINVAL;
 	}
-	int temp = compat_sys_fcntl64(fd, cmd, arg);
+	temp = compat_sys_fcntl64(fd, cmd, arg);
 	if(temp>=0)
 	{
 		mylogger2("fcntl", fd);

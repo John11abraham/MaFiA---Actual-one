@@ -157,10 +157,12 @@ long __sys_get_binder_ws(pid_t pid)
 
 long __sys_set_binder_ws(pid_t pid, long ws)
 {
-
+	//printk("\nAndre WS is: %ld\n", ws);
+//	printk("\nAndre source is %ld\n", current->binder_ws);
 	current->binder_ws = ws;
 	return 0;
 }
+
 
 static bool set_one_prio_perm(struct task_struct *p)
 {
